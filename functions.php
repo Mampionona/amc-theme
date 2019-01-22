@@ -1,5 +1,6 @@
 <?php
 
+// Fafana daholo ny JS sy CSS tsy miasa
 function amc_deregister_assets() {
     // styles
     wp_deregister_style('bootstrap.min');
@@ -26,13 +27,16 @@ function amc_deregister_assets() {
     // wp_deregister_script('jquery.nav');
     // wp_deregister_script('main-onepage');
     wp_deregister_script('unique-style');
+    wp_deregister_script('jquery-ui-core');
 }
 
 add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
 
 function amc_enqueue_scripts() {
-    wp_enqueue_style('amc-style', get_stylesheet_directory_uri() . '/build/css/app.css');
-    wp_enqueue_script('amc-script', get_stylesheet_directory_uri() . '/build/js/app.js');
+    $theme_dir = get_stylesheet_directory_uri();
+
+    wp_enqueue_style('amc-style', $theme_dir . '/build/css/app.css', array(), null);
+    wp_enqueue_script('amc-script', $theme_dir . '/build/js/app.js', array(), null);
 }
 
 add_action('wp_enqueue_scripts', 'amc_enqueue_scripts', 20);
