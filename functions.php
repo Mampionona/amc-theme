@@ -3,31 +3,15 @@
 // Fafana daholo ny JS sy CSS tsy miasa
 function amc_deregister_assets() {
     // styles
-    wp_deregister_style('bootstrap.min');
-    wp_deregister_style('font-awesome.min');
-    wp_deregister_style('owl.carousel');
-    wp_deregister_style('magnific-popup');
-    wp_deregister_style('starterpro-starter-legacy');
-    wp_deregister_style('starterpro-custom-css');
-    wp_deregister_style('starterpro-main');
-    wp_deregister_style('starterpro-blog-detaills');
-    wp_deregister_style('starterpro-responsive');
-    wp_deregister_style('prettyPhoto');
-    wp_deregister_style('animate.min');
-    wp_deregister_style('starterpro-style');
+    wp_deregister_style('font-awesome');
+    wp_deregister_style('sportson_preset1');
+    wp_deregister_style('quick-style');
 
     // scripts
     wp_deregister_script('bootstrap');
-    wp_deregister_script('loopcounter');
-    wp_deregister_script('owl.carousel.min');
-    wp_deregister_script('jquery.prettySocial');
-    wp_deregister_script('jquery.isotope.min');
-    wp_deregister_script('jquery.prettyPhoto');
-    wp_deregister_script('jquery.magnific-popup.min');
-    // wp_deregister_script('jquery.nav');
-    // wp_deregister_script('main-onepage');
-    wp_deregister_script('unique-style');
-    wp_deregister_script('jquery-ui-core');
+    wp_deregister_script('SmoothScroll');
+    wp_deregister_script('parallax');
+    wp_deregister_script('main');
 }
 
 add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
