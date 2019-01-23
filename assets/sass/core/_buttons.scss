@@ -1,1 +1,11 @@
+.btn {
+  &.scroll-down {
+    span {
+      text-transform: uppercase;
+    }
 
+    .icon-wrap {
+      border: 2px solid red;
+    }
+  }
+}

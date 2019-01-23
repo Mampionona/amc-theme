@@ -24,3 +24,20 @@ function amc_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'amc_enqueue_scripts', 20);
+
+// Redeclare Bottom sidebar
+function amc_deregister_sidebar() {
+    unregister_sidebar('bottom');
+
+    register_sidebar(array(
+        'name' => __( 'Bottom', 'themeum' ),
+        'id' => 'bottom',
+        'description' => __( 'Widgets in this area will be shown before Footer.' , 'themeum'),
+        'before_title' => '<h3 class="widget_title">',
+        'after_title' => '</h3>',
+        'before_widget' => '<div class="bottom-widget"><div id="%1$s" class="widget %2$s" >',
+        'after_widget' 	=> '</div></div>'
+	));
+}
+
+add_action('widgets_init', 'amc_deregister_sidebar', 20);

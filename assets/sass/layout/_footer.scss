@@ -1,1 +1,13 @@
+.footer-wrap {
+  .bottom-widget {
+    padding-left: 60px;
+    
+    ul {
+      @include list-unstyled;
+    }
 
+    a {
+      text-transform: uppercase;
+    }
+  }
+}
