@@ -1,6 +1,6 @@
 <?php global $themeum; ?>
 
-<header id="masthead" class="site-header" role="banner">
+<header id="header" class="site-header" role="banner">
     <nav>
         <button class="navbar-toggler flex-column d-inline-flex d-lg-none" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
             <span class="bar-icon"></span>

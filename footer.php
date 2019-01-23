@@ -8,9 +8,9 @@
                     </button>
                 </div>
 
-                <?php // if (!is_front_page()) : ?>
+                <?php if (!is_front_page()) : ?>
                     <?php dynamic_sidebar('bottom'); ?>
-                <?php // endif; ?>
+                <?php endif; ?>
             </footer>
         </div>
 
