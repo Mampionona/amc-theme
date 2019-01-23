@@ -1,1 +1,38 @@
+// Contact form
+.wpcf7-form {
+  label {
+    display: block;
+    text-transform: uppercase;
 
+    &.fichier {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+  }
+
+  .wpcf7-form-control {
+    color: $color-text;
+
+    &.wpcf7-file {
+      display: none;
+    }
+  }
+
+  .wpcf7-text,
+  .wpcf7-textarea {
+    border: 0;
+    width: 100%;
+  }
+
+  .wpcf7-textarea {
+    resize: none;
+  }
+
+  .wpcf7-submit {
+    text-transform: uppercase;
+  }
+}
