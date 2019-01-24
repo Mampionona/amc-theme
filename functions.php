@@ -1,5 +1,25 @@
 <?php
 
+function amc_theme_setup() {
+    add_theme_support('soil-clean-up');
+    add_theme_support('soil-disable-asset-versioning');
+    add_theme_support('soil-js-to-footer');
+    add_theme_support('soil-relative-urls');
+}
+
+add_action('after_setup_theme', 'amc_theme_setup', 20);
+
+// filter title tag
+function amc_title($title) {
+    if (is_front_page()) {
+        return get_bloginfo('name');
+    }
+
+    return $title . ' - ' . get_bloginfo('name');
+}
+
+add_filter('wp_title', 'amc_title', 10, 2);
+
 // Fafana daholo ny JS sy CSS tsy miasa
 function amc_deregister_assets() {
     // styles
@@ -15,6 +35,13 @@ function amc_deregister_assets() {
 }
 
 add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
+
+// unregister_post_type project post_type
+function amc_unregister_post_type() {
+    unregister_post_type('project');
+}
+
+add_action('init', 'amc_unregister_post_type', 20);
 
 function amc_enqueue_scripts() {
     $theme_dir = get_stylesheet_directory_uri();
