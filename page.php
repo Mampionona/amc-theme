@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php var_dump(get_current_menu_children('primary')); ?>
 <section>
     <div class="container">
         <div class="row">
@@ -26,5 +26,4 @@
         </div>
     </div>
 </section>
-
 <?php get_footer();

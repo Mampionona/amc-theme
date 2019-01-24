@@ -2,19 +2,19 @@
 /*
  * Template Name: Frontpage
  */
-get_header(); 
+get_header();
 
 $current_page_id = get_option('page_on_front'); // get front page id
-$args = array( 'post_type' => 'page');
+$args = array('post_type' => 'page');
 
 // checking menu exist in location "primary"
 if (($locations = get_nav_menu_locations() ) && $locations['primary']) {
-	$menu 			= wp_get_nav_menu_object( $locations['primary'] );
-	$menu_items 	= wp_get_nav_menu_items( $menu->term_id );
+	$menu = wp_get_nav_menu_object( $locations['primary'] );
+	$menu_items = wp_get_nav_menu_items( $menu->term_id );
 
 	$post_ids = array();
 	foreach ($menu_items as $items) {
-		if($items->object == 'page'){
+		if ($items->object == 'page') {
 			$post_ids[] = $items->object_id;
 		}
 	}
@@ -22,12 +22,12 @@ if (($locations = get_nav_menu_locations() ) && $locations['primary']) {
 	$args = array(
 		'post_type' => 'page', 
 		'post__in' => $post_ids, 
-		'posts_per_page' => count( $post_ids ), 
+		'posts_per_page' => count($post_ids), 
 		'orderby' => 'post__in'
 	);
 }
 
-$allPosts = new WP_Query( $args ); // get pages on menu
+$allPosts = new WP_Query($args); // get pages on menu
 
 if (have_posts()) {
 	// Start the Loop.

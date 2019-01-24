@@ -68,3 +68,43 @@ function amc_deregister_sidebar() {
 }
 
 add_action('widgets_init', 'amc_deregister_sidebar', 20);
+
+/**
+ * @param string $location
+ * @param array $menu_items
+ * @return array $menu_items
+ */
+function get_current_menu_children($location, $menu_items = array()) {
+    global $post;
+
+    $locations = get_nav_menu_locations();
+    $menu = wp_get_nav_menu_object($locations[$location]);
+
+    if ($menu) {
+        $items = wp_get_nav_menu_items($menu->term_id);
+        $menu_id = 0;
+
+        foreach ($items as $item) {
+            if ($item->object_id == $post->ID) {
+                if (preg_match('#p=([0-9]+)$#', $item->guid, $matches)) {
+                    $menu_id = (int) $matches[1];
+                    break;
+                }
+            }
+        }
+
+        foreach ($items as $item) {
+            if ($item->menu_item_parent != $menu_id) {
+                continue;
+            }
+
+            $page_id = $item->object_id;
+            $page = get_post($page_id);
+            $menu_items[] = $page->post_name;
+        }
+    }
+    
+    return $menu_items;
+}
+
+
