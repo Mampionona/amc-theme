@@ -15,3 +15,21 @@
     }
   }
 }
+
+.btn {
+  &.scroll-down {
+    color: $color-text;
+
+    span {
+      text-transform: uppercase;
+    }
+
+    .icon-wrap {
+      border: 2px solid $color-text;
+      border-radius: 18px;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 24px 8px 2px;
+    }
+  }
+}
