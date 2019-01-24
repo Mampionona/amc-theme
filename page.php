@@ -1,0 +1,30 @@
+<?php get_header(); ?>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col" role="main">
+                <?php while ( have_posts() ): the_post(); ?>
+
+                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                        <h1 class="entry-title"><?php the_title(); ?></h1>
+
+                        <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
+                        <div class="entry-thumbnail">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <div class="entry-content">
+                            <?php the_content(); ?>
+                        </div>
+
+                    </article>
+
+                <?php endwhile; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php get_footer();
