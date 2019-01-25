@@ -10,4 +10,10 @@ $font-title: "Roboto", sans-serif;
 
 //== Bootstrap
 $enable-rounded: false;
-// $primary: $color-rose;
+$primary: $color-text;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1000px
+);
