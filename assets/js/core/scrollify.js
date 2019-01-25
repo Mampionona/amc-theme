@@ -1,4 +1,4 @@
-import 'jquery-scrollify';
+import 'jquery-scrollify'
 
 $(function() {
   $.scrollify({
@@ -10,7 +10,7 @@ $(function() {
      * Arguments include the index of the section and an array of all section elements.
      */
     after (index, elements) {
-      
+      // declenchena ny animation
     }
   })
 })

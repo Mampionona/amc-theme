@@ -12,7 +12,10 @@
 
   const handleScroll = animated => {
     if (isScrolledIntoView(animated)) {
-      const { classList, dataset } = animated
+      const {
+        classList,
+        dataset
+      } = animated
       classList.add('animated', dataset.animate)
     }
   }
