@@ -98,9 +98,7 @@ function get_current_menu_children($location, $menu_items = array()) {
                 continue;
             }
 
-            $page_id = $item->object_id;
-            $page = get_post($page_id);
-            $menu_items[] = $page->post_name;
+            $menu_items[] = $item->object_id;
         }
     }
     

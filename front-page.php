@@ -4,7 +4,8 @@
  */
 get_header();
 
-$current_page_id = get_option('page_on_front'); // get front page id
+// get front page id
+$current_page_id = get_option('page_on_front');
 $args = array('post_type' => 'page');
 
 // checking menu exist in location "primary"
@@ -27,20 +28,16 @@ if (($locations = get_nav_menu_locations() ) && $locations['primary']) {
 	);
 }
 
-$allPosts = new WP_Query($args); // get pages on menu
+// get pages on menu
+$allPosts = new WP_Query($args); 
 
 if (have_posts()) {
-	// Start the Loop.
 	while ( $allPosts->have_posts() ) {
 		$allPosts->the_post();
-		// set global $post
 		global $post;
 
-		$separator 			= get_post_meta( $post->ID, 'thm_no_hash', true );
-		$page_section 		= get_post_meta( $post->ID, 'thm_section_type', true );
-		$no_title 			= get_post_meta( $post->ID, 'thm_no_title', true );
-		$menu_disable 		= get_post_meta( $post->ID, 'thm_disable_menu', true );
-		$bg_color 			= get_post_meta( $post->ID, 'thm_bg_color', true );
+		$separator = get_post_meta( $post->ID, 'thm_no_hash', true );
+		$page_section = get_post_meta( $post->ID, 'thm_section_type', true );
 
 		$postId = get_the_ID();
 
