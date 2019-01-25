@@ -25,14 +25,14 @@
                         </div>
                         <div class="col-lg-5 text-center text-lg-left">
                             <a href="<?php echo $url_jetassistance; ?>" class="btn btn-outline-light" target="_blank">
-                                <?php _e('Jet Assistance', 'starter'); ?>
+                                <?php _e('Jet Assistance', AMC_TEXTDOMAIN); ?>
                                 <i class="far fa-play-circle"></i>
                             </a>
                         </div>
                     </div>
 
                     <div class="devenez-partenaire">
-                        <h3><?php _e('Devenez partenaire', 'starter'); ?></h3>
+                        <h3><?php _e('Devenez partenaire', AMC_TEXTDOMAIN); ?></h3>
                         <?php echo do_shortcode($devenez_partenaire); ?>
                     </div>
                 <?php endwhile; ?>

@@ -1,5 +1,7 @@
 <?php
 
+define('AMC_TEXTDOMAIN', 'amc-theme');
+
 require_once 'lib/assets.php';
 
 function amc_theme_setup() {
@@ -57,9 +59,9 @@ function amc_deregister_sidebar() {
     unregister_sidebar('bottom');
 
     register_sidebar(array(
-        'name' => __( 'Bottom', 'themeum' ),
+        'name' => __('Bottom', AMC_TEXTDOMAIN),
         'id' => 'bottom',
-        'description' => __( 'Widgets in this area will be shown before Footer.' , 'themeum'),
+        'description' => __( 'Widgets in this area will be shown before Footer.' , AMC_TEXTDOMAIN),
         'before_title' => '<h3 class="widget_title">',
         'after_title' => '</h3>',
         'before_widget' => '<div class="bottom-widget"><div id="%1$s" class="widget %2$s" >',

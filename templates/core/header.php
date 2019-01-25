@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="navbar-collapse primary-nav slideInRight animated" id="primary-nav">
+        <div class="navbar-collapse primary-nav slideInRight animated delay-1s" id="primary-nav">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
