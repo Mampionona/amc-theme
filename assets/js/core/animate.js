@@ -1,4 +1,5 @@
 // Scroll Animations
+// https://scotch.io/tutorials/level-up-your-websites-with-animatecss
 (function (w, d, undefined) {
   const isScrolledIntoView = element => {
     const doc_view_top = w.pageYOffset
