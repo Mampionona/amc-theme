@@ -6,3 +6,4 @@ import './../images';
 import './core/header';
 // import './core/scrollify';
 import './templates/histoire';
+import './core/animate';
