@@ -1,5 +1,7 @@
 <?php
 
+require_once 'lib/assets.php';
+
 function amc_theme_setup() {
     add_theme_support('soil-clean-up');
     add_theme_support('soil-disable-asset-versioning');
@@ -46,8 +48,8 @@ add_action('init', 'amc_unregister_post_type', 20);
 function amc_enqueue_scripts() {
     $theme_dir = get_stylesheet_directory_uri();
 
-    wp_enqueue_style('amc-style', $theme_dir . '/build/css/app.css', array(), null);
-    wp_enqueue_script('amc-script', $theme_dir . '/build/js/app.js', array(), null);
+    wp_enqueue_style('amc-style', asset_path('css/app.css'), array(), null);
+    wp_enqueue_script('amc-script', asset_path('js/app.js'), array(), null);
 }
 
 add_action('wp_enqueue_scripts', 'amc_enqueue_scripts', 20);
@@ -69,11 +71,7 @@ function amc_deregister_sidebar() {
 
 add_action('widgets_init', 'amc_deregister_sidebar', 20);
 
-/**
- * @param string $location
- * @param array $menu_items
- * @return array $menu_items
- */
+// Get all submenus in current page
 function get_current_menu_children($location, $menu_items = array()) {
     global $post;
 
@@ -84,6 +82,7 @@ function get_current_menu_children($location, $menu_items = array()) {
         $items = wp_get_nav_menu_items($menu->term_id);
         $menu_id = 0;
 
+        // get current menu item
         foreach ($items as $item) {
             if ($item->object_id == $post->ID) {
                 if (preg_match('#p=([0-9]+)$#', $item->guid, $matches)) {
@@ -93,6 +92,7 @@ function get_current_menu_children($location, $menu_items = array()) {
             }
         }
 
+        // get submenu items
         foreach ($items as $item) {
             if ($item->menu_item_parent != $menu_id) {
                 continue;
