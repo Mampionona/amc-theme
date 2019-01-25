@@ -46,10 +46,8 @@ function amc_unregister_post_type() {
 add_action('init', 'amc_unregister_post_type', 20);
 
 function amc_enqueue_scripts() {
-    $theme_dir = get_stylesheet_directory_uri();
-
-    wp_enqueue_style('amc-style', asset_path('css/app.css'), array(), null);
-    wp_enqueue_script('amc-script', asset_path('js/app.js'), array(), null);
+    wp_enqueue_style('amc-style', asset_path('css/app.css'));
+    wp_enqueue_script('amc-script', asset_path('js/app.js'));
 }
 
 add_action('wp_enqueue_scripts', 'amc_enqueue_scripts', 20);
