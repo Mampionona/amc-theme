@@ -20,8 +20,6 @@
     d.querySelectorAll('.scroll-animations [data-animate]:not(.animated)').forEach(handleScroll)
   )
 
-  animate()
-
   // If element is scrolled into view, fade it in
   w.addEventListener('scroll', animate)
 } (window, document))
