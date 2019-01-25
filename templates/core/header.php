@@ -21,22 +21,22 @@
                                 <?php endif; ?>
                             </a>
                         </div>
-
-                        <div class="navbar-collapse" id="primary-nav">
-                            <?php
-                                if (has_nav_menu('primary')) {
-                                    wp_nav_menu(array(
-                                        'theme_location' => 'primary',
-                                        'container' => false,
-                                        'menu_class' => 'nav navbar-nav',
-                                        'walker' => new Onepage_Walker()
-                                    ));
-                                }
-                            ?>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="navbar-collapse primary-nav slideInRight animated" id="primary-nav">
+            <?php
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container' => false,
+                        'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-end h-100',
+                        'walker' => new Onepage_Walker()
+                    ));
+                }
+            ?>
         </div>
     </nav>
 </header>
