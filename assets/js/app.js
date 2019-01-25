@@ -1,4 +1,5 @@
 const $ = require('jquery');
+import '@babel/polyfill';
 
 import 'bootstrap';
 import './../images';

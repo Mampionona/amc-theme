@@ -5,6 +5,7 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "@babel/polyfill": "^7.2.5",
     "@symfony/webpack-encore": "^0.20.1",
     "animate.css": "^3.7.0",
     "autoprefixer": "^8.6.5",
