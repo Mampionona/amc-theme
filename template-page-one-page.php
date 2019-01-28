@@ -8,12 +8,11 @@ $post_ids = get_current_menu_children('primary');
 $args = array('post_type' => 'page');
 
 if (!!count($post_ids)) {
-	$args = array(
-		'post_type' => 'page', 
-		'post__in' => $post_ids, 
-		'posts_per_page' => count($post_ids), 
+	$args = array_merge($args, array(
+		'post__in' => $post_ids,
+		'posts_per_page' => count($post_ids),
 		'orderby' => 'post__in'
-	);
+	));
 }
 
 // get pages on menu
