@@ -12,17 +12,17 @@ $histoires = get_post_meta(get_the_id(), 'histoire_entreprise', true);
     <div class="container">
         <div class="row">
             <div class="col">                
-                <div class="owl-carousel histoire-carousel">
+                <div class="owl-carousel histoires histoire-carousel">
                     <?php foreach ($histoires as $histoire) : ?>
                         <?php
                         $attachment_src = wp_get_attachment_image_src($histoire['histoire_photo'], 'histoire');
                         $description = $histoire['histoire_description'];
                         ?>
-                        <div>
+                        <div class="histoire-item">
                             <?php if ($attachment_src || $description) : ?>
                                 <figure>
                                     <?php if ($attachment_src) : ?>
-                                        <img src="<?php echo $attachment_src[0]; ?>" alt="">
+                                        <img class="owl-lazy" data-src="<?php echo $attachment_src[0]; ?>" alt="">
                                     <?php endif; ?>
                                     <?php if ($description) : ?>
                                         <figcaption><?php echo $description; ?></figcaption>

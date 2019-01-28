@@ -17,8 +17,18 @@
                         $texte_additionnel = get_field('texte_additionnel');
                         $url_jetassistance = get_field('url_jetassistance');
                         $devenez_partenaire = get_field('devenez_partenaire');
+                        $logos = get_post_meta(get_the_id(), 'logos', true);
                     ?>
-                    __logos__
+                    <div class="owl-carousel logos-carousel">
+                        <?php foreach ($logos as $logo) : ?>
+                            <?php $logo = wp_get_attachment_url($logo['partenaire_logo']); ?>
+                            <?php if ($logo) : ?>
+                                <div class="logo-item">
+                                    <img class="owl-lazy" data-src="<?php echo $logo; ?>" alt="">
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
                     <div class="row">
                         <div class="col-lg-7">
                             <?php echo $texte_additionnel; ?>
