@@ -2,11 +2,11 @@ import 'owl.carousel';
 
 $(function() {
   const owl = $('.histoire-carousel').owlCarousel({
-    autoplay: true,
+    // autoplay: true,
     dotsContainer: '#dates',
     items: 1,
     lazyLoad: true,
-    loop: true,
+    // loop: true,
     smartSpeed: 1000
   })
 
