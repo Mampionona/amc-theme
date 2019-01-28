@@ -9,6 +9,9 @@ function amc_theme_setup() {
     add_theme_support('soil-disable-asset-versioning');
     add_theme_support('soil-js-to-footer');
     add_theme_support('soil-relative-urls');
+
+    // add_image_size( string $name, int $width, int $height, bool|array $crop = false )
+    add_image_size('histoire', 1000, 450, true);
 }
 
 add_action('after_setup_theme', 'amc_theme_setup', 20);

@@ -4,28 +4,43 @@
  */
 
 get_header();
+
+$histoires = get_post_meta(get_the_id(), 'histoire_entreprise', true);
 ?>
 
 <section class="histoire-entreprise-wrap">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col">                
                 <div class="owl-carousel histoire-carousel">
-                    <?php for ($i = 0; $i < 6; $i++) : ?>
+                    <?php foreach ($histoires as $histoire) : ?>
+                        <?php
+                        $attachment_src = wp_get_attachment_image_src($histoire['histoire_photo'], 'histoire');
+                        $description = $histoire['histoire_description'];
+                        ?>
                         <div>
-                            <figure>
-                                <img src="//via.placeholder.com/1110x250?text=slide+<?php echo ($i + 1); ?>" alt="">
-                                <figcaption>Commodo velit dolor laborum exercitation excepteur fugiat et incididunt magna commodo dolor. Et pariatur sit est amet irure sunt sit laborum reprehenderit non. Occaecat sunt consequat quis consectetur do ad. Cillum exercitation sint occaecat esse sunt consectetur fugiat nostrud ad.</figcaption>
-                            </figure>
+                            <?php if ($attachment_src || $description) : ?>
+                                <figure>
+                                    <?php if ($attachment_src) : ?>
+                                        <img src="<?php echo $attachment_src[0]; ?>" alt="">
+                                    <?php endif; ?>
+                                    <?php if ($description) : ?>
+                                        <figcaption><?php echo $description; ?></figcaption>
+                                    <?php endif; ?>
+                                </figure>
+                            <?php endif; ?>
                         </div>
-                    <?php endfor; ?>
+                <?php endforeach; ?>
                 </div>
                 <div class="owl-dots d-flex justify-content-center" id="dates">
-                    <?php for ($i = 0; $i < 6; $i++) : ?>
-                        <div class="owl-dot">
-                            <button class="btn"><?php echo ($i + 1); ?></button>
-                        </div>
-                    <?php endfor; ?>
+                    <?php foreach ($histoires as $histoire) : ?>
+                        <?php $date = $histoire['histoire_date']; ?>
+                        <?php if ($date) : ?>
+                            <div class="owl-dot">
+                                <button class="btn"><?php echo $histoire['histoire_date']; ?></button>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
