@@ -103,9 +103,11 @@ function get_current_menu_children($location, $menu_items = array()) {
 
             $menu_items[] = $item->object_id;
         }
+
+        return $menu_items;
     }
-    
-    return $menu_items;
+
+    return false;
 }
 
 
