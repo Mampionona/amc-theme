@@ -3,6 +3,7 @@
 define('AMC_TEXTDOMAIN', 'amc-theme');
 
 require_once 'lib/assets.php';
+require_once 'lib/metabox.php';
 
 function amc_theme_setup() {
     add_theme_support('soil-clean-up');
@@ -46,6 +47,8 @@ add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
 // unregister_post_type project post_type
 function amc_unregister_post_type() {
     unregister_post_type('project');
+
+    remove_filter( 'rwmb_meta_boxes', 'thm_register_meta_boxes' );
 }
 
 add_action('init', 'amc_unregister_post_type', 20);

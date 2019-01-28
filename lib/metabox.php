@@ -12,14 +12,14 @@
  */
 
 
-add_filter( 'rwmb_meta_boxes', 'thm_register_meta_boxes' );
+add_filter( 'rwmb_meta_boxes', 'amc_register_meta_boxes', 30 );
 
 /**
  * Register meta boxes
  *
  * @return void
  */
-function thm_register_meta_boxes( $meta_boxes )
+function amc_register_meta_boxes( $meta_boxes )
 {
 	/**
 	 * Prefix of meta keys (optional)
@@ -299,7 +299,7 @@ function thm_register_meta_boxes( $meta_boxes )
 		'id' => 'page-meta-settings',
 
 		// Meta box title - Will appear at the drag and drop handle bar. Required.
-		'title' => __( 'Page Settings', 'themeum' ),
+		'title' => __( 'Paramètres de la page', 'themeum' ),
 
 		// Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
 		'pages' => array( 'page'),
@@ -314,25 +314,25 @@ function thm_register_meta_boxes( $meta_boxes )
 		'fields' => array(
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'Alternative Title', 'themeum' ),
+				'name'  => __( 'Titre alternatif', 'themeum' ),
 				// Field ID, i.e. the meta key
 				'id'    => "{$prefix}page_title",
 				'type'  => 'text',
 				// Default value (optional)
 				'std'   => ''
 			),
+			// array(
+			// 	// Field name - Will be used as label
+			// 	'name'  => __( 'Sous-titre', 'themeum' ),
+			// 	// Field ID, i.e. the meta key
+			// 	'id'    => "{$prefix}page_subtitle",
+			// 	'type'  => 'text',
+			// 	// Default value (optional)
+			// 	'std'   => ''
+			// ),
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'Subtitle', 'themeum' ),
-				// Field ID, i.e. the meta key
-				'id'    => "{$prefix}page_subtitle",
-				'type'  => 'text',
-				// Default value (optional)
-				'std'   => ''
-			),
-			array(
-				// Field name - Will be used as label
-				'name'  => __( 'Disable Title', 'themeum' ),
+				'name'  => __( 'Désactiver le titre', 'themeum' ),
 				// Field ID, i.e. the meta key
 				'id'    => "{$prefix}no_title",
 				'type'  => 'checkbox',
@@ -341,26 +341,26 @@ function thm_register_meta_boxes( $meta_boxes )
 			),
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'Open in New Pape', 'themeum' ),
+				'name'  => __( 'Ouvrir dans une nouvelle page', 'themeum' ),
 				// Field ID, i.e. the meta key
 				'id'    => "{$prefix}no_hash",
 				'type'  => 'checkbox',
 				// Default value (optional)
 				'std'   => ''
 			),
+			// array(
+			// 	// Field name - Will be used as label
+			// 	'name'  => __( 'Page Section Background', 'themeum' ),
+			// 	'desc'  => 'One Page Section Color',
+			// 	// Field ID, i.e. the meta key
+			// 	'id'    => "{$prefix}bg_color",
+			// 	'type'  => 'color',
+			// 	// Default value (optional)
+			// 	'std'   => '#ffffff'
+			// ),
 			array(
 				// Field name - Will be used as label
-				'name'  => __( 'Page Section Background', 'themeum' ),
-				'desc'  => 'One Page Section Color',
-				// Field ID, i.e. the meta key
-				'id'    => "{$prefix}bg_color",
-				'type'  => 'color',
-				// Default value (optional)
-				'std'   => '#ffffff'
-			),
-			array(
-				// Field name - Will be used as label
-				'name'  => __( 'Disable From Menu', 'themeum' ),
+				'name'  => __( 'Désactiver du menu', 'themeum' ),
 				// Field ID, i.e. the meta key
 				'id'    => "{$prefix}disable_menu",
 				'type'  => 'checkbox',
@@ -368,25 +368,25 @@ function thm_register_meta_boxes( $meta_boxes )
 				'std'   => ''
 			),
 			array(
-				'name'     => __( 'Page Section Type', 'themeum' ),
+				'name'     => __( 'Type de section de page', 'themeum' ),
 				'id'       => "{$prefix}section_type",
 				'type'     => 'select',
 				// Array of 'value' => 'Label' pairs for select box
 				'options'  => array(
 					'default' 	=> __( 'Default', 'themeum' ),
 					'full' 		=> __( 'Full-Width', 'themeum' ),
-					'parallax' 	=> __( 'Parallax', 'themeum' )
+					// 'parallax' 	=> __( 'Parallax', 'themeum' )
 				),
 				// Select multiple values, optional. Default is false.
 				'multiple'    => false,
 				'std'         => 'default'
 			),
 
-			array(
-				'name'    => __( 'Background Url', 'themeum' ),
-				'id'      => "{$prefix}background_url",
-				'type'    => 'text'
-			)
+			// array(
+			// 	'name'    => __( 'Background Url', 'themeum' ),
+			// 	'id'      => "{$prefix}background_url",
+			// 	'type'    => 'text'
+			// )
 			
 		)
 	);
