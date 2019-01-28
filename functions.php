@@ -48,7 +48,7 @@ add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
 function amc_unregister_post_type() {
     unregister_post_type('project');
 
-    remove_filter( 'rwmb_meta_boxes', 'thm_register_meta_boxes' );
+    remove_filter('rwmb_meta_boxes', 'thm_register_meta_boxes');
 }
 
 add_action('init', 'amc_unregister_post_type', 20);
