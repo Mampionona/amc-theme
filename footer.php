@@ -3,7 +3,7 @@
                     <button class="btn scroll-down" id="scroll-down">
                         <span class="d-block"><?php _e('Scroll down', AMC_TEXTDOMAIN); ?></span>
                         <span class="icon-wrap">
-                            <i class="fas fa-angle-down"></i>
+                            <!-- <i class="fas fa-angle-down"></i> -->
                         </span>
                     </button>
                 </div>

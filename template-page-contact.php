@@ -24,7 +24,8 @@
                             <div class="contact-form"><?php echo do_shortcode($formulaire); ?></div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="carte"><?php echo $carte; ?></div>
+                            <?php get_template_part('templates/partials/map'); ?>
+                            
                             <div class="horaires"><?php echo $horaires; ?></div>
                             <address><?php echo $adresse; ?></address>
                         </div>

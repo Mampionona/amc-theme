@@ -16,3 +16,33 @@
     display: none;
   }
 }
+
+.nav {
+  > li {
+    position: relative;
+
+    > a {
+      display: block;
+      padding: 16px 18px 16px 0;
+
+      &:hover {
+        color: $color-blue-light;
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 65px;
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        border-top: 1px solid $color-blue-light;
+      }
+    }
+  }
+}
