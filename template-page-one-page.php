@@ -17,27 +17,31 @@ if (!!count($post_ids)) {
 
 // get pages on menu
 $allPosts = new WP_Query($args);
+?>
+<main id="main-content" class="one-page-content">
+	<?php
+		if (have_posts()) {
+			while ($allPosts->have_posts()) {
+				$allPosts->the_post();
+				global $post;
 
-if (have_posts()) {
-	while ($allPosts->have_posts()) {
-		$allPosts->the_post();
-		global $post;
+				$separator = get_post_meta($post->ID, 'thm_no_hash', true);
+				$page_section = get_post_meta($post->ID, 'thm_section_type', true);
 
-		$separator = get_post_meta($post->ID, 'thm_no_hash', true);
-		$page_section = get_post_meta($post->ID, 'thm_section_type', true);
+				if ($separator) {
+					continue;
+				}
 
-		if ($separator) {
-			continue;
+				if ($page_section == 'default') {
+					get_template_part('templates/boxed', 'content');
+				} elseif ($page_section == 'full') {
+					get_template_part('templates/fullwidth', 'content');
+				}
+			}
 		}
 
-		if ($page_section == 'default') {
-			get_template_part('templates/boxed', 'content');
-		} elseif ($page_section == 'full') {
-			get_template_part('templates/fullwidth', 'content');
-		}
-	}
-}
+		wp_reset_postdata();
+	?>
+</main>
 
-wp_reset_postdata();
-
-get_footer();
+<?php get_footer();

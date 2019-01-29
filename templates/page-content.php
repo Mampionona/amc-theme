@@ -1,22 +1,10 @@
-<?php $no_title = get_post_meta( $post->ID, 'thm_no_title', true ); ?>
+<?php
+$no_title = get_post_meta($post->ID, 'thm_no_title', true);
+$template_file = get_stylesheet_directory() . '/templates/partials/one-page/content-page-' . $post->ID . '.php';
+?>
 
 <div class="col">
-    <?php
-    if (!$no_title) :
-        $page_title 		= get_post_meta( $post->ID, 'thm_page_title', true );
-        $page_subtitle 		= get_post_meta( $post->ID, 'thm_page_subtitle', true );
-    ?> 
-        <div class="title-area">
-            <h2 class="title"><?php if($page_title != '') { echo $page_title; }else{ echo get_the_title(); } ?> </h2>
-
-            <?php if ( $page_subtitle != '') : ?>
-                <p class="subtitle"><?php echo $page_subtitle; ?></p>
-            <?php endif; ?>
-            
-        </div> <!-- .section-title -->
+    <?php if (file_exists($template_file)) : ?>
+        <?php require $template_file; ?>
     <?php endif; ?>
-
-    <div class="page-content">
-        <?php echo do_shortcode(get_the_content()); ?>
-    </div> <!-- .page-content -->
 </div>
