@@ -46,6 +46,12 @@ function amc_enqueue_scripts() {
 
 add_action('wp_enqueue_scripts', 'amc_enqueue_scripts', 20);
 
+function amc_admin_scripts() {
+    wp_enqueue_style('amc-admin', asset_path('css/admin.css'));
+}
+
+add_action('admin_enqueue_scripts', 'amc_admin_scripts');
+
 // Redeclare Bottom sidebar
 function amc_deregister_sidebar() {
     unregister_sidebar('bottom');
@@ -98,5 +104,3 @@ function get_current_menu_children($location, $menu_items = array()) {
 
     return false;
 }
-
-

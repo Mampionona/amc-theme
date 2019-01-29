@@ -2,6 +2,9 @@
 .wpcf7-form {
   label {
     display: block;
+    font-size: 8px;
+    margin-bottom: 12px;
+    padding-left: 5px;
     text-transform: uppercase;
 
     &.fichier {
@@ -12,6 +15,12 @@
 
   .wpcf7-form-control-wrap {
     display: block;
+    margin-left: -5px;
+    margin-top: 5px;
+
+    &[class*="file-"] {
+      display: none;
+    }
   }
 
   .wpcf7-form-control {
@@ -26,14 +35,55 @@
   .wpcf7-textarea {
     border: 0;
     color: $color-blue;
+    padding-left: 5px;
+    padding-right: 5px;
     width: 100%;
   }
 
+  .wpcf7-email,
+  .wpcf7-text {
+    height: 22px;
+  }
+
   .wpcf7-textarea {
+    height: 132px;
     resize: none;
   }
 
   .wpcf7-submit {
+    border-color: $color-blue-light;
     text-transform: uppercase;
+
+    &:hover {
+      background-color: $color-blue-light;
+    }
+  }
+
+  .buttons {
+    margin-top: 9px;
+    
+    .btn {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+
+  .text {
+    font-size: 7px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .footer {
+    margin-top: -2px;
+  }
+}
+
+div.wpcf7 {
+  .ajax-loader {
+    display: none;
   }
 }

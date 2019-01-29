@@ -2,18 +2,21 @@
 $color-text: #fff !default;
 $color-navigation: #fff !default;
 $color-blue: #06174d !default;
+$color-blue-light: #009fe3;
+$color-grey: #7d7d7d;
 
 //=== Fonts
-$font-text: "Open Sans", sans-serif;
-$font-navigation: "Roboto", sans-serif;
-$font-title: "Roboto", sans-serif;
+$font-text: 'Montserrat', sans-serif;
+$font-navigation: $font-text;
+$font-title: $font-text;
 
 //== Bootstrap
 $enable-rounded: false;
 $primary: $color-text;
+$grid-gutter-width: 20px;
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1000px
+  // sm: 540px,
+  // md: 720px,
+  lg: 750px,
+  xl: 780px
 );

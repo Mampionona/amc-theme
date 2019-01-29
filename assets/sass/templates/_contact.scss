@@ -1,5 +1,41 @@
 .contact-wrap {
   iframe {
+    height: 200px;
     width: 100%;
+  }
+
+  .carte {
+    margin-top: 17px;
+  }
+
+  .horaires {
+    line-height: 12px;
+    margin-top: 8px;
+
+    strong {
+      color: $color-blue-light;
+    }
+  }
+
+  address {
+    line-height: 12px;
+
+    strong {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    a {
+      color: $color-blue-light;
+      font-size: 14px;
+    }
+
+    p {
+      margin-bottom: 0;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
   }
 }

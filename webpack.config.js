@@ -19,6 +19,7 @@ Encore
     // will create build/app.js and build/app.css
     .addEntry('js/app', './assets/js/app.js')
     .addStyleEntry('css/app', './assets/sass/app.scss')
+    .addStyleEntry('css/admin', './assets/sass/admin.scss')
 
     // enable source maps during development
     .enableSourceMaps(!Encore.isProduction())
