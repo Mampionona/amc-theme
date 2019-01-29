@@ -1,0 +1,31 @@
+.agrements-wrap {
+  .content {
+    margin-bottom: 34px;
+
+    p {
+      color: $color-blue-light;
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 18px;
+    }
+  }
+
+  .btn-outline-light {
+    text-transform: none;
+  }
+}
+
+.logos-carousel {
+  margin-bottom: 30px;
+
+  .owl-item {
+    img {
+      width: initial;
+    }
+  }
+
+  .owl-stage {
+    align-items: center;
+    display: flex;
+  }
+}

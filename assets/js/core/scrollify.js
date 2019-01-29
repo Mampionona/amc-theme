@@ -4,7 +4,7 @@ $(function() {
   $.scrollify({
     section: '.scrollify',
     interstitialSection : '#header, #footer',
-    setHeights: false,
+    // setHeights: false,
     /**
      * 
      * A callback that is fired after a new section is scrolled to. 
