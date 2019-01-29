@@ -1,5 +1,4 @@
 <?php
-
 define('AMC_TEXTDOMAIN', 'amc-theme');
 
 require_once 'lib/assets.php';
@@ -28,27 +27,14 @@ function amc_title($title) {
 
 add_filter('wp_title', 'amc_title', 10, 2);
 
-// Fafana daholo ny JS sy CSS tsy miasa
-function amc_deregister_assets() {
-    // styles
-    wp_deregister_style('font-awesome');
-    wp_deregister_style('sportson_preset1');
-    wp_deregister_style('quick-style');
-
-    // scripts
-    wp_deregister_script('bootstrap');
-    wp_deregister_script('SmoothScroll');
-    wp_deregister_script('parallax');
-    wp_deregister_script('main');
-}
-
-add_action('wp_enqueue_scripts', 'amc_deregister_assets', 19);
-
 // unregister_post_type project post_type
 function amc_unregister_post_type() {
     unregister_post_type('project');
 
+    // remove starter metaboxes
     remove_filter('rwmb_meta_boxes', 'thm_register_meta_boxes');
+    // remove starter scripts and styles
+    remove_action('wp_enqueue_scripts', 'themeum_style');
 }
 
 add_action('init', 'amc_unregister_post_type', 20);
