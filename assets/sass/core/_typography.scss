@@ -13,3 +13,14 @@ h1 {
   margin-bottom: 16px;
   text-transform: uppercase;
 }
+
+@mixin subtitle {
+  color: $color-blue-light;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 18px;
+}
+
+.subtitle {
+  @include subtitle;
+}

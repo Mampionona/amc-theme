@@ -18,7 +18,7 @@
         </div>
     <?php endif; ?>
 
-    <div class="row">
+    <div class="row additionnel">
         <div class="col-lg-7">
             <?php echo $texte_additionnel; ?>
         </div>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="devenez-partenaire">
-        <h3><?php _e('Devenez partenaire', AMC_TEXTDOMAIN); ?></h3>
+        <h3 class="subtitle"><?php _e('Devenez partenaire', AMC_TEXTDOMAIN); ?></h3>
         <?php echo do_shortcode($devenez_partenaire); ?>
     </div>
 </div>

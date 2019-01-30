@@ -18,7 +18,7 @@ if (!!count($post_ids)) {
 // get pages on menu
 $allPosts = new WP_Query($args);
 ?>
-<main id="main-content" class="one-page-content">
+<div class="one-page-content">
 	<?php
 		if (have_posts()) {
 			while ($allPosts->have_posts()) {
@@ -42,6 +42,6 @@ $allPosts = new WP_Query($args);
 
 		wp_reset_postdata();
 	?>
-</main>
+</div>
 
 <?php get_footer();

@@ -23,4 +23,5 @@
 </head>
 <body <?php body_class() ?>>
 	<div id="page" class="hfeed site">
-        <?php get_template_part('templates/core/header'); ?>
+		<?php get_template_part('templates/core/header'); ?>
+			<main id="ajax-content">

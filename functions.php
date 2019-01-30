@@ -2,6 +2,7 @@
 define('AMC_TEXTDOMAIN', 'amc-theme');
 
 require_once 'lib/assets.php';
+require_once 'lib/nav-walker.php';
 require_once 'lib/metabox.php';
 
 function amc_theme_setup() {

@@ -1,3 +1,5 @@
+            </main>
+            
             <footer id="footer" class="footer-wrap">
                 <div class="text-center scroll-down-wrap">
                     <button class="btn scroll-down" id="scroll-down">

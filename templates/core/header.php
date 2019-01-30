@@ -26,14 +26,27 @@
             </div>
         </div>
 
-        <div class="navbar-collapse primary-nav slideInRight animated delay-1s" id="primary-nav">
+        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav slideInRight animated delay-1s" id="primary-nav">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'container' => false,
                         'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-end h-100',
-                        'walker' => new Onepage_Walker()
+                        'walker' => new Onepage_WalkerOverride()
+                    ));
+                }
+            ?>
+        </div>
+
+        <div class="menu-niveaux menu-niveau-2 slideInLeft animated delay-1s">
+            <?php
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container' => false,
+                        'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-start h-100',
+                        'walker' => new Onepage_WalkerOverride()
                     ));
                 }
             ?>

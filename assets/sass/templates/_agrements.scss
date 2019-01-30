@@ -3,15 +3,31 @@
     margin-bottom: 34px;
 
     p {
-      color: $color-blue-light;
-      font-size: 16px;
-      font-weight: 100;
-      line-height: 18px;
+      @include subtitle;
     }
   }
 
   .btn-outline-light {
     text-transform: none;
+  }
+
+  .wpcf7-form {
+    .wpcf7-textarea {
+      height: 124px;
+    }
+
+    .wpcf7-submit {
+      padding-left: 29px;
+      padding-right: 29px;
+    }
+  }
+
+  .additionnel {
+    margin-bottom: 16px;
+
+    p {
+      font-weight: 100;
+    }
   }
 }
 
@@ -27,5 +43,11 @@
   .owl-stage {
     align-items: center;
     display: flex;
+  }
+}
+
+.devenez-partenaire {
+  .subtitle {
+    margin-bottom: 13px;
   }
 }
