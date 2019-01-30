@@ -4,14 +4,18 @@ $(function() {
   const init = () => {
     const owl = $('.histoire-carousel');
 
-    const header = $('.histoire-carousel-wrap .header');
+    const titles = $('.histoire-carousel-wrap .header').children();
 
     const callback = ({ page: { index } }) => {
+      const animation = 'rubberBand'
       if (index == -1) {
         index = 0
       }
-      header.children().css('opacity', 0)
-      header.children().eq(index).css('opacity', 1)
+      titles
+        .css('opacity', 0)
+        .removeClass(animation)
+        .eq(index).css('opacity', 1)
+        .addClass(animation)
     }
 
     owl.on({

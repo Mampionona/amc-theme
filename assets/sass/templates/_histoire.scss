@@ -91,10 +91,10 @@
 
     > div {
       flex-direction: column;
-      opacity: 0;
+      // opacity: 0;
       position: absolute;
       top: 0;
-      transition: opacity .3s;
+      // transition: opacity .3s;
       width: 100%;
     }
   }

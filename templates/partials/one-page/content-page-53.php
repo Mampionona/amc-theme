@@ -5,7 +5,7 @@
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php $titre = get_sub_field('titre'); ?>
                     <?php $date = get_sub_field('date'); ?>
-                    <div class="d-flex">
+                    <div class="d-flex animated">
                         <div class="date"><?php echo $date; ?></div>
                         <div class="titre"><?php echo $titre; ?></div>
                     </div>
