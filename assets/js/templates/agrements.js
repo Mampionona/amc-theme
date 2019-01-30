@@ -2,12 +2,12 @@ import 'owl.carousel'
 
 $(function() {
   $('.logos-carousel').owlCarousel({
-    items: 5,
+    items: 3,
     lazyLoad: true,
-    // responsive: [
-    //   {
-
-    //   }
-    // ]
+    responsive: {
+      992: {
+        items: 5
+      }
+    }
   })
 })
