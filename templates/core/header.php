@@ -2,7 +2,7 @@
 
 <header id="header" class="site-header" role="banner">
     <nav>
-        <button class="navbar-toggler flex-column d-inline-flex d-lg-none" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
+        <button class="navbar-toggler flex-column d-inline-flex" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
             <span class="bar-icon"></span>
             <span class="bar-icon"></span>
             <span class="bar-icon"></span>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav slideInRight animated" id="primary-nav">
+        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav" id="primary-nav">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
@@ -39,7 +39,7 @@
             ?>
         </div>
 
-        <div class="menu-niveaux menu-niveau-2 slideInLeft animated">
+        <div class="menu-niveaux menu-niveau-2">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(

@@ -1,17 +1,28 @@
 .navbar-toggler {
-  background-color: darken($color-text, 100%);
-  padding: 18px 15px;
-  position: absolute;
+  background-color: $navbar-toggler-background;
+  padding: 24px 19px;
+  position: fixed;
   right: 0;
-  top: 0;
+  top: calc((100% - 56px) / 2);
+  transition: transform .2s;
   z-index: 9;
 
   .bar-icon {
-    border-top: 2px solid #fff;
-    width: 26px;
+    border-top: 3px solid $color-blue-light;
+    width: 27px;
 
     &:not(:first-of-type) {
-      margin-top: 6px;
+      margin-top: 4px;
+    }
+  }
+
+  &.out {
+    transform: translateX(70px);
+  }
+
+  &:hover {
+    .bar-icon {
+      border-color: $color-text;
     }
   }
 }

@@ -1,9 +1,9 @@
 .menu-niveaux {
-  display: none;
   height: 100%;
   max-width: 204px;
   position: fixed;
   top: 0;
+  transition: transform .4s;
   z-index: 9;
 
   &.in {
@@ -11,6 +11,7 @@
   }
 
   &.menu-niveau-2 {
+    // display: block;
     left: 0;
   }
 
@@ -69,6 +70,12 @@
 }
 
 .menu-niveau-2 {
+  transform: translateX(-204px);
+
+  &.in {
+    transform: translateX(0);
+  }
+
   .nav {
     > .menu-item {
       display: none;
@@ -106,6 +113,8 @@
 }
 
 .menu-niveau-1 {
+  transform: translateX(204px);
+
   .nav {
     > .menu-item {
       &::before {
@@ -118,5 +127,9 @@
         }
       }
     }
+  }
+
+  &.in {
+    transform: translateX(0);
   }
 }
