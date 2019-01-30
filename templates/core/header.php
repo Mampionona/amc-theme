@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav slideInRight animated delay-1s" id="primary-nav">
+        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav slideInRight animated" id="primary-nav">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
@@ -39,7 +39,7 @@
             ?>
         </div>
 
-        <div class="menu-niveaux menu-niveau-2 slideInLeft animated delay-1s">
+        <div class="menu-niveaux menu-niveau-2 slideInLeft animated">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(

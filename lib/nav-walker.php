@@ -13,6 +13,7 @@ class Onepage_WalkerOverride extends Walker_Nav_menu
 
 		$class_names = $value = '';
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
 		$class_names = join(' ', $classes);
 
        	$class_names = ' class="'. esc_attr( $class_names ) . '"';
