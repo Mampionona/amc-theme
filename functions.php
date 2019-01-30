@@ -12,7 +12,7 @@ function amc_theme_setup() {
     add_theme_support('soil-relative-urls');
 
     // add_image_size( string $name, int $width, int $height, bool|array $crop = false )
-    add_image_size('histoire', 1000, 450, true);
+    add_image_size('histoire', 542, 342, true);
 }
 
 add_action('after_setup_theme', 'amc_theme_setup', 20);

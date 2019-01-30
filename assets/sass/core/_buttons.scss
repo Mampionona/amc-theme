@@ -1,5 +1,12 @@
 .btn {
   color: $color-text;
+
+  &:focus,
+  &:active,
+  &.active {
+    box-shadow: none;
+    outline: 0;
+  }
 }
 
 .btn-outline-light {
