@@ -2,11 +2,11 @@
 
 <header id="header" class="site-header" role="banner">
     <nav>
-        <button class="navbar-toggler flex-column d-inline-flex" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
+        <!-- <button class="navbar-toggler flex-column d-inline-flex" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
             <span class="bar-icon"></span>
             <span class="bar-icon"></span>
             <span class="bar-icon"></span>
-        </button>
+        </button> -->
 
         <div class="container">
             <div class="row">
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav" id="primary-nav">
+        <!-- <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav" id="primary-nav">
             <?php
                 if (has_nav_menu('primary')) {
                     wp_nav_menu(array(
@@ -50,6 +50,40 @@
                     ));
                 }
             ?>
-        </div>
+        </div> -->
     </nav>
 </header>
+
+<button class="navbar-toggler flex-column d-inline-flex" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
+    <span class="bar-icon"></span>
+    <span class="bar-icon"></span>
+    <span class="bar-icon"></span>
+</button>
+
+<nav>
+    <div class="menu-niveaux menu-niveau-1 navbar-collapse primary-nav" id="primary-nav">
+        <?php
+            if (has_nav_menu('primary')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container' => false,
+                    'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-end h-100',
+                    'walker' => new Onepage_WalkerOverride()
+                ));
+            }
+        ?>
+    </div>
+
+    <div class="menu-niveaux menu-niveau-2">
+        <?php
+            if (has_nav_menu('primary')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container' => false,
+                    'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-start h-100',
+                    'walker' => new Onepage_WalkerOverride()
+                ));
+            }
+        ?>
+    </div>
+</nav>

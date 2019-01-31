@@ -1,3 +1,15 @@
 .site-header {
+  left: 0;
+  opacity: 1;
   padding: 45px 0;
+  position: fixed;
+  top: 0;
+  transition: transform .2s ease-in, opacity .2s ease-in;
+  width: 100%;
+  z-index: 9;
+
+  &.out {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }

@@ -24,3 +24,23 @@ h2 {
     color: $color-blue-light;
   }
 }
+
+.page-wrapper {
+  padding-top: 163px;
+
+  &.has-background {
+    position: relative;
+
+    .background {
+      background-position: right center;
+      background-repeat: no-repeat;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: percentage(482 / 1170);
+    }
+  }
+}
