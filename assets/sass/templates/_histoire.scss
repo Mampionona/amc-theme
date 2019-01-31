@@ -79,6 +79,17 @@
     font-weight: 100;
     line-height: 18px;
     margin-top: -14px;
+    position: relative;
+
+    &::after {
+      border-top: 1px solid $color-text;
+      bottom: -10px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      width: 129px;
+    }
   }
 
   .header {
