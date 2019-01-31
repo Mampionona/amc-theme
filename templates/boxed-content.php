@@ -11,7 +11,12 @@
         <div class="row">
             <?php get_template_part('templates/page', 'content'); ?>
         </div>
+        <div class="row">
+            <div class="col">
+                <?php get_template_part('templates/partials/scroll', 'down'); ?>
+            </div>
+        </div>
     </div>
 
-    <?php get_template_part('templates/partials/scroll', 'down'); ?>
+    <?php // get_template_part('templates/partials/scroll', 'down'); ?>
 </section>

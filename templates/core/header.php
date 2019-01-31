@@ -55,9 +55,9 @@
 </header>
 
 <button class="navbar-toggler flex-column d-inline-flex" type="button" data-toggle="fade" data-target="#primary-nav" aria-label="Toggle navigation">
-    <span class="bar-icon"></span>
-    <span class="bar-icon"></span>
-    <span class="bar-icon"></span>
+    <span class="bar-icon d-inline-block"></span>
+    <span class="bar-icon d-inline-block"></span>
+    <span class="bar-icon d-inline-block"></span>
 </button>
 
 <nav>

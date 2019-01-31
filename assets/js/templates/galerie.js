@@ -1,4 +1,5 @@
-import 'owl.carousel';
+import 'owl.carousel'
+import 'jquery-scrollify'
 
 $(function() {
   const init = () => {
@@ -16,6 +17,8 @@ $(function() {
         .removeClass(animation)
         .eq(index).css('opacity', 1)
         .addClass(animation)
+
+      $.scrollify.update()
     }
 
     owl.on({
@@ -26,6 +29,7 @@ $(function() {
     owl.owlCarousel({
       autoplay: true,
       dotsContainer: '#dates',
+      lazyLoadEager: 2,
       items: 1,
       lazyLoad: true,
       loop: true,
