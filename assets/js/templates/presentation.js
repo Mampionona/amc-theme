@@ -3,11 +3,12 @@
     d.querySelectorAll('.page-wrapper.has-background').forEach(page => {
       const background = page.querySelector('.background')
       background.style.backgroundImage = `url(${background.dataset.backgroundImage})`
-      background.classList.add('fadeInUp', 'animated', 'delay-1s')
+      background.style.height = `${w.innerHeight}px`
     })
   }
 
   setBackground()
 
   d.addEventListener('AWSSuccess', setBackground)
+  w.addEventListener('resize', setBackground)
 } (window, document))

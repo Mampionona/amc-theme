@@ -7,7 +7,7 @@ $(function() {
     const titles = $('.histoire-carousel-wrap .header').children();
 
     const callback = ({ page: { index } }) => {
-      const animation = 'rubberBand'
+      const animation = 'fadeInRight'
       if (index == -1) {
         index = 0
       }

@@ -98,14 +98,11 @@
     width: 180px;
     text-align: right;
     top: -30px;
-    z-index: 9;
 
     > div {
       flex-direction: column;
-      // opacity: 0;
       position: absolute;
       top: 0;
-      // transition: opacity .3s;
       width: 100%;
     }
   }
