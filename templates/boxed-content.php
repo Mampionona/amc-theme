@@ -11,5 +11,7 @@
         <div class="row">
             <?php get_template_part('templates/page', 'content'); ?>
         </div>
-    </div> <!-- .container -->
+    </div>
+
+    <?php get_template_part('templates/partials/scroll', 'down'); ?>
 </section>

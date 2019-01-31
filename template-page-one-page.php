@@ -44,4 +44,4 @@ $allPosts = new WP_Query($args);
 	?>
 </div>
 
-<?php get_footer();
+<?php get_footer(); ?>

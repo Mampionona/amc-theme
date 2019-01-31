@@ -75,4 +75,6 @@ $(function() {
       $.scrollify.move(hash[1])
     }
   })
+
+  $('.scroll-down').on('click', () => ($.scrollify.next()))
 })

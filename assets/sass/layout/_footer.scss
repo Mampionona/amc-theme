@@ -1,4 +1,8 @@
 .footer-wrap {
+  bottom: 0;
+  position: fixed;
+  z-index: 9;
+
   .bottom-widget {
     padding-left: 60px;
     
