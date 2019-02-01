@@ -18,11 +18,32 @@ $(function() {
         .eq(index).css('opacity', 1)
         .addClass(animation)
 
-      $.scrollify.update()
+      // $.scrollify.update()
     }
 
+    const resizeCarousel = () => {
+      owl.removeAttr('style')
+
+      if (window.innerWidth > 500) {
+        return
+      }
+
+      owl.css({
+        left: ((owl.width() - $(window).width()) / 2),
+        width: $(window).width()
+      })
+    }
+
+    resizeCarousel()
+
+    $(window).on('resize', resizeCarousel)
+
     owl.on({
-      'initialized.owl.carousel': callback,
+      'initialized.owl.carousel': (event) => {
+        callback(event)
+        
+        $.scrollify.update()
+      },
       'translated.owl.carousel': callback
     })
 

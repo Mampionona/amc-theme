@@ -123,4 +123,12 @@ $(function() {
       navbar_toggler.removeAttribute('style')
     }
   })
+
+  const hash = window.location.hash
+  $.scrollify.instantMove(0)
+  setTimeout(() => {
+    if (hash.match('^#[a-z0-9\-]+')) {
+      $.scrollify.move(hash)
+    }
+  }, 1000)
 })

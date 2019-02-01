@@ -31,6 +31,10 @@ h2 {
   > div {
     &:not(.scroll-down-wrap) {
       padding-top: 163px;
+
+      @include media-breakpoint-down(lg) {
+        padding-top: 146px;
+      }
     }
   }
 

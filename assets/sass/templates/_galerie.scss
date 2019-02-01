@@ -7,6 +7,10 @@
     font-weight: 100;
     line-height: 18px;
     margin-top: 20px;
+
+    @media (max-width: 500px) {
+      padding: 0 65px;
+    }
   }
 }
 
@@ -93,11 +97,13 @@
   }
 
   .header {
-    position: absolute;
-    left: -194px;
-    width: 180px;
-    text-align: right;
-    top: -30px;
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      left: -194px;
+      width: 180px;
+      text-align: right;
+      top: -30px;
+    }
 
     > div {
       flex-direction: column;
@@ -106,4 +112,8 @@
       width: 100%;
     }
   }
+}
+
+.histoire-carousel {
+  position: relative;
 }
