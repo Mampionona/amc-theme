@@ -14,6 +14,9 @@
 @import '~owl.carousel/dist/assets/owl.carousel.css';
 @import '~animate.css/animate.css';
 
+// === MIXINS
+@import 'mixins';
+
 // === LAYOUT
 @import 'layout/grid';
 @import 'layout/global';
@@ -29,6 +32,7 @@
 
 // === MENU
 @import 'menu/main';
+@import 'menu/responsive';
 
 // === TEMPLATES
 @import 'templates/home';

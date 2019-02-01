@@ -3,7 +3,8 @@ import 'jquery-scrollify'
 $(function() {
   const header = document.getElementById('header')
   const firstCurrentMenuItem = '.menu-niveau-2 .current-menu-item .menu-item'
-  const navbar_toggle = document.querySelector('.navbar-toggler')
+  const navbar_toggler = document.querySelector('.navbar-toggler')
+  const body = document.body
 
   const clearCurrentClass = () => (
     document.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
@@ -13,14 +14,18 @@ $(function() {
     section: '.scrollify',
     before (index, elements) {
       header.classList.add('out')
-      navbar_toggle.classList.add('out')
+      navbar_toggler.classList.add('out')
     },
     // A callback that is fired after a new section is scrolled to
     after (index, elements) {
       header.classList.remove('out')
-      navbar_toggle.classList.remove('out')
+      navbar_toggler.classList.remove('out')
       header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
-      navbar_toggle.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+      navbar_toggler.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+
+      if (window.innerWidth > 1199) {
+        navbar_toggler.removeAttribute('style')
+      }
 
       const id = elements[index][0]['id']
 
@@ -63,15 +68,24 @@ $(function() {
   // The update method recalculates the heights and positions of the panels.
   const updateScrollify = () => ($.scrollify.update());
 
-  window.addEventListener('resize', updateScrollify)
+  // window.addEventListener('resize', updateScrollify)
   
   document.addEventListener('AWSSuccess', () => {
+    if ($.scrollify.isDisabled()) {
+      $.scrollify.enable()
+      $.scrollify.update()
+    }
+
     window.location.hash = ''
     updateScrollify()
     clearCurrentClass()
 
     header.style.top = 0
-    navbar_toggle.style.top = 0
+    navbar_toggler.style.top = 0
+
+    if (window.innerWidth > 1199) {
+      navbar_toggler.removeAttribute('style')
+    }
 
     const current_menu_item = document.querySelector('.menu-niveau-2 .current-menu-item')
     const first = current_menu_item.querySelector('.menu-item')
@@ -90,4 +104,23 @@ $(function() {
   })
 
   $(document).on('click', '.scroll-down', () => $.scrollify.next())
+
+  navbar_toggler.addEventListener('click', () => {
+    body.classList.add('menu-in')
+    $.scrollify.disable()
+  })
+
+  document.querySelector('.close-menu').addEventListener('click', () => {
+    body.classList.remove('menu-in')
+    navbar_toggler.classList.remove('out')
+    $.scrollify.enable()
+    $.scrollify.update()
+  })
+
+  window.addEventListener('resize', function () {
+    updateScrollify()
+    if (this.innerWidth > 1199) {
+      navbar_toggler.removeAttribute('style')
+    }
+  })
 })
