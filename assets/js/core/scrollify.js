@@ -14,16 +14,19 @@ $(function() {
       header.classList.add('out')
     },
     // A callback that is fired after a new section is scrolled to
-    after (index) {
+    after (index, elements) {
       header.classList.remove('out')
       header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
 
-      const id = window.location.hash.replace(/#/, '')
-      const current = document.querySelector(`.menu-niveau-2 [data-hash=${id}]`)
+      const id = elements[index][0]['id']
 
-      if (current) {
-        clearCurrentClass()
-        current.classList.add('current')
+      if (id.length > 0) {
+        const current = document.querySelector(`.menu-niveau-2 [data-hash=${id}]`)
+
+        if (current) {
+          clearCurrentClass()
+          current.classList.add('current')
+        }
       }
 
       document.querySelectorAll('.page-wrapper.has-background').forEach(page => {
@@ -61,9 +64,13 @@ $(function() {
   document.addEventListener('AWSSuccess', () => {
     updateScrollify()
     clearCurrentClass()
-    const first_item = document.querySelector(firstCurrentMenuItem)
-    if (first_item) {
-      first_item.classList.add('current')
+
+    header.style.top = 0
+
+    const current_menu_item = document.querySelector('.menu-niveau-2 .current-menu-item')
+    const first = current_menu_item.querySelector('.menu-item')
+    if (first) {
+      first.classList.add('current')
     }
   })
 
@@ -76,5 +83,5 @@ $(function() {
     }
   })
 
-  $('.scroll-down').on('click', () => ($.scrollify.next()))
+  $(document).on('click', '.scroll-down', () => $.scrollify.next())
 })

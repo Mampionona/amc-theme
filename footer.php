@@ -1,11 +1,10 @@
+            
             </main>
             
-            <footer id="footer" class="footer-wrap">
+            <footer id="footer" class="footer-wrap d-none d-xl-block">
                 <?php // get_template_part('templates/partials/scroll', 'down'); ?>
 
-                <?php if (!is_front_page()) : ?>
-                    <?php dynamic_sidebar('bottom'); ?>
-                <?php endif; ?>
+                <?php dynamic_sidebar('bottom'); ?>
             </footer>
         </div>
 

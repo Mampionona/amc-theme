@@ -33,6 +33,14 @@
     menu_level_2.classList.remove('in')
     menu_level_1.classList.remove('in')
     menu_level_1.querySelectorAll('.nav > .menu-item').forEach(menuItem)
+
+    // var wpcf7_form = document.getElementsByClassName('wpcf7-form');
+    // [].forEach.call(wpcf7_form, function (form) {
+    //   wpcf7.initForm(form);
+    // });
+
+    const wpcf7_form = document.querySelectorAll('.wpcf7-form')
+    wpcf7_form.forEach(form => wpcf7.initForm(form))
   })
 
   // navbar toggler
