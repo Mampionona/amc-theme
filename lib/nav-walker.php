@@ -44,9 +44,11 @@ class Onepage_WalkerOverride extends Walker_Nav_menu
 		        }	
 
 		        $item_output = $args->before;
-		        $item_output .= '<a'. $attributes .'>';
+				$item_output .= '<a'. $attributes .'>';
+				$item_output .= '<span class="menu-item-title">';
 		        $item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
-		        $item_output .= $args->link_after;
+				$item_output .= $args->link_after;
+				$item_output .= '</span>';
 		        $item_output .= '</a>';
 		        $item_output .= $args->after;
 

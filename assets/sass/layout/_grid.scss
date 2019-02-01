@@ -1,0 +1,5 @@
+@include media-breakpoint-down(lg) {
+  .container {
+    width: calc(100% - 110px);
+  }
+}
