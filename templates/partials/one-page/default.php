@@ -1,3 +1,3 @@
-<div class="etapes-wrap">
+<div class="default">
     <?php the_content(); ?>
 </div>
