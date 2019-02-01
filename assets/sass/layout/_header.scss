@@ -12,4 +12,8 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
+  @include media-breakpoint-down(lg) {
+    padding: 26px 0;
+  }
 }

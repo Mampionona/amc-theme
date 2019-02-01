@@ -16,6 +16,13 @@
 
   &.menu-niveau-1 {
     right: 0;
+
+    @include media-breakpoint-down(lg) {
+      &,
+      &.in {
+        display: none;
+      }
+    }
   }
 
   .nav,
@@ -76,7 +83,7 @@
     a {
       padding-left: 16px;
       padding-right: 16px;
-      
+
       &::before {
         background: url('../images/dot.png') no-repeat center;
         content: '';

@@ -3,6 +3,7 @@ import 'jquery-scrollify'
 $(function() {
   const header = document.getElementById('header')
   const firstCurrentMenuItem = '.menu-niveau-2 .current-menu-item .menu-item'
+  const navbar_toggle = document.querySelector('.navbar-toggler')
 
   const clearCurrentClass = () => (
     document.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
@@ -12,11 +13,14 @@ $(function() {
     section: '.scrollify',
     before (index, elements) {
       header.classList.add('out')
+      navbar_toggle.classList.add('out')
     },
     // A callback that is fired after a new section is scrolled to
     after (index, elements) {
       header.classList.remove('out')
+      navbar_toggle.classList.remove('out')
       header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+      navbar_toggle.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
 
       const id = elements[index][0]['id']
 
@@ -67,6 +71,7 @@ $(function() {
     clearCurrentClass()
 
     header.style.top = 0
+    navbar_toggle.style.top = 0
 
     const current_menu_item = document.querySelector('.menu-niveau-2 .current-menu-item')
     const first = current_menu_item.querySelector('.menu-item')
