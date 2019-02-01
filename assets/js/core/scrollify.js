@@ -62,6 +62,7 @@ $(function() {
   window.addEventListener('resize', updateScrollify)
   
   document.addEventListener('AWSSuccess', () => {
+    window.location.hash = ''
     updateScrollify()
     clearCurrentClass()
 
