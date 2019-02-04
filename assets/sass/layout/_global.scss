@@ -21,6 +21,12 @@ a {
     line-height: 13px;
     text-align: justify;
   }
+
+  @include media-breakpoint-down(lg) {
+    p {
+      line-height: 18px;
+    }
+  }
 }
 
 h2 {

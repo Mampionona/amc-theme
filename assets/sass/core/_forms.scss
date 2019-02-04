@@ -62,10 +62,12 @@
   .buttons {
     margin-top: 9px;
     
-    .btn {
-      padding-left: 0;
-      padding-right: 0;
-      width: 100%;
+    @include media-breakpoint-up(xl) {
+      .btn {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
     }
   }
 
@@ -79,6 +81,18 @@
 
   .footer {
     margin-top: -2px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    label {
+      font-size: 13px;
+    }
+
+    .buttons {
+      .btn {
+        font-size: 13px;
+      }
+    }
   }
 }
 

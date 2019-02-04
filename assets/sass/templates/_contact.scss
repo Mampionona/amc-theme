@@ -39,4 +39,59 @@
       }
     }
   }
+
+  @include media-breakpoint-up(xl) {
+    .buttons {
+      .left,
+      .right {
+        flex: 1;
+      }
+
+      .right {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .content {
+      margin-bottom: 44px;
+    }
+
+    .map {
+      height: 357px;
+      margin-top: 74px;
+    }
+
+    .horaires {
+      font-size: 15px;
+      line-height: 21px;
+      margin-top: 35px;
+    }
+
+    address {
+      font-size: 13px;
+      line-height: 21px;
+      margin-top: 36px;
+
+      p {
+        &:first-child {
+          font-weight: 400;
+        }
+      }
+
+      strong,
+      a {
+        font-size: 18px;
+      }
+    }
+
+    .buttons {
+      margin-top: 38px;
+
+      .right {
+        margin-left: 24px;
+      }
+    }
+  }
 }

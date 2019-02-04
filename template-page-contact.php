@@ -21,14 +21,16 @@
                         <div class="content"><?php the_content(); ?></div>
 
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-xl-8">
                                 <div class="contact-form"><?php echo do_shortcode($formulaire); ?></div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-xl-4">
                                 <?php get_template_part('templates/partials/map'); ?>
                                 
-                                <div class="horaires"><?php echo $horaires; ?></div>
-                                <address><?php echo $adresse; ?></address>
+                                <div class="text-center text-xl-left">
+                                    <div class="horaires"><?php echo $horaires; ?></div>
+                                    <address><?php echo $adresse; ?></address>
+                                </div>
                             </div>
                         </div>
                     <?php endwhile; ?>
