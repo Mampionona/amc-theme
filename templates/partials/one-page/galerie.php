@@ -20,7 +20,7 @@
                         $description = get_sub_field('description');
                     ?>
                     <div class="histoire-item">
-                        <div class="row item-header">                            
+                        <div class="row item-header d-xl-none">                            
                             <div class="col">
                                 <div class="date text-right"><?php echo $date; ?></div>
                             </div>
