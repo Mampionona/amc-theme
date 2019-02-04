@@ -10,7 +10,9 @@
                             <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>" title="<?php bloginfo('name'); ?>">
                                 <?php if (isset($themeum['logo_image'])) : ?>
                                     <?php if (!empty($themeum['logo_image'])) : ?>
-                                        <img src="<?php echo $themeum['logo_image']; ?>" alt="<?php bloginfo('name'); ?>">
+                                        <img src="<?php echo $themeum['logo_image']; ?>" alt="<?php bloginfo('name'); ?>" class="logo-amc">
+                                    <?php else : ?>
+                                        <?php bloginfo('name'); ?>
                                     <?php endif; ?>
                                 <?php endif; ?>
                             </a>
@@ -62,7 +64,13 @@
             </button>
             <div class="logo text-center">
                 <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>" title="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo asset_path('images/amc-178.png'); ?>" alt="<?php bloginfo('name'); ?>">
+                    <?php if (isset($themeum['logo_image'])) : ?>
+                        <?php if (!empty($themeum['logo_image'])) : ?>
+                            <img src="<?php echo $themeum['logo_image']; ?>" alt="<?php bloginfo('name'); ?>">
+                        <?php else : ?>
+                            <?php bloginfo('name'); ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </a>
             </div>
             <div class="menu-wrap">

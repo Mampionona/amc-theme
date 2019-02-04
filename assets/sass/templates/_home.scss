@@ -7,3 +7,11 @@
     display: none;
   }
 }
+
+.logo-amc {
+  max-width: 137px;
+  
+  body:not(.home) & {
+    max-width: 89px;
+  }
+}
