@@ -65,19 +65,15 @@ $(function() {
     }
   })
 
-  // The update method recalculates the heights and positions of the panels.
-  const updateScrollify = () => ($.scrollify.update());
-
   // window.addEventListener('resize', updateScrollify)
   
   document.addEventListener('AWSSuccess', () => {
     if ($.scrollify.isDisabled()) {
       $.scrollify.enable()
-      $.scrollify.update()
     }
 
-    window.location.hash = ''
-    updateScrollify()
+    $.scrollify.update()
+    $.scrollify.instantMove(0)
     clearCurrentClass()
 
     header.style.top = 0
@@ -118,7 +114,7 @@ $(function() {
   })
 
   window.addEventListener('resize', function () {
-    updateScrollify()
+    $.scrollify.update()
     if (this.innerWidth > 1199) {
       navbar_toggler.removeAttribute('style')
     }

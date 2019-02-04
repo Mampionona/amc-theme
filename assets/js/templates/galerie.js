@@ -40,20 +40,19 @@ $(function() {
 
     owl.on({
       'initialized.owl.carousel': (event) => {
-        callback(event)
-        
+        callback(event)        
         $.scrollify.update()
       },
       'translated.owl.carousel': callback
     })
 
     owl.owlCarousel({
-      autoplay: true,
+      // autoplay: true,
       dotsContainer: '#dates',
       lazyLoadEager: 2,
       items: 1,
       lazyLoad: true,
-      loop: true,
+      // loop: true,
       smartSpeed: 1000
     })
 
