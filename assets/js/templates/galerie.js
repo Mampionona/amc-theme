@@ -47,12 +47,12 @@ $(function() {
     })
 
     owl.owlCarousel({
-      // autoplay: true,
+      autoplay: true,
       dotsContainer: '#dates',
       lazyLoadEager: 2,
       items: 1,
       lazyLoad: true,
-      // loop: true,
+      loop: true,
       smartSpeed: 1000
     })
 

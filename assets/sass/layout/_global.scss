@@ -1,6 +1,10 @@
 body {
   background: linear-gradient(to right, #071954 0%, #061547 25%, #06113a 50%, #060f30 75%, #050d2c 100%);
   color: $color-text;
+
+  @include media-breakpoint-down(lg) {
+    background: #061953;
+  }
 }
 
 a {

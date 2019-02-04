@@ -1,7 +1,7 @@
 <div class="histoire-wrap">
     <?php if (have_rows('histoires')): ?>
         <div class="histoire-carousel-wrap">
-            <div class="header">
+            <div class="header d-none d-xl-block">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php $titre = get_sub_field('titre'); ?>
                     <?php $date = get_sub_field('date'); ?>
@@ -20,6 +20,14 @@
                         $description = get_sub_field('description');
                     ?>
                     <div class="histoire-item">
+                        <div class="row item-header">                            
+                            <div class="col">
+                                <div class="date text-right"><?php echo $date; ?></div>
+                            </div>
+                            <div class="col">
+                                <div class="titre"><?php echo $titre; ?></div>
+                            </div>
+                        </div>
                         <?php if ($photo || $description) : ?>
                             <figure>
                                 <?php if ($photo) : ?>

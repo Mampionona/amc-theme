@@ -9,6 +9,11 @@
     line-height: 18px;
     margin-top: 20px;
 
+    @include media-breakpoint-down(lg) {
+      font-size: 13px;
+      margin-top: 26px;
+    }
+
     @media (max-width: 500px) {
       padding: 0 65px;
     }
@@ -64,6 +69,22 @@
       }
     }
   }
+
+  @include media-breakpoint-down(lg) {
+    .owl-dots {
+      margin-top: 26px;
+    }
+
+    .owl-dot {
+      .btn {
+        font-size: 14px;
+
+        &::after {
+          margin: -1px auto 0;
+        }
+      }
+    }
+  }
 }
 
 .histoire-carousel-wrap {
@@ -111,6 +132,29 @@
       position: absolute;
       top: 0;
       width: 100%;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .item-header {
+      margin-bottom: 43px;
+    }
+    
+    .date {
+      margin: -28px 0;
+    }
+
+    .titre {
+      font-size: 20px;
+      margin-top: 0;
+      height: 71px;
+
+      &::after {
+        bottom: inherit;
+        left: 0;
+        margin-top: 16px;
+        position: relative;
+      }
     }
   }
 }
