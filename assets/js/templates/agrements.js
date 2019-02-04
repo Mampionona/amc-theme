@@ -1,8 +1,19 @@
 import 'owl.carousel'
 
 $(function() {
-  const carousel = () => (
-    $('.logos-carousel').owlCarousel({
+  const init = () => {
+    const owl = $('.logos-carousel')
+
+    // const callback = () => (
+    //   owl.find('.logo-item').height(owl.height())
+    // )
+
+    // owl.on({
+    //   'initialized.owl.carousel': callback,
+    //   'loaded.owl.lazy': callback
+    // })
+
+    owl.owlCarousel({
       items: 3,
       lazyLoad: true,
       responsive: {
@@ -11,7 +22,9 @@ $(function() {
         }
       }
     })
-  )
+  }
 
-  document.addEventListener('AWSSuccess', carousel)
+  init()
+
+  document.addEventListener('AWSSuccess', init)
 })

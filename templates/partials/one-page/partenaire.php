@@ -19,13 +19,13 @@
     <?php endif; ?>
 
     <div class="row additionnel">
-        <div class="col-lg-7">
+        <div class="col-lg-7 text-center text-xl-left">
             <?php echo $texte_additionnel; ?>
         </div>
         <div class="col-lg-5 text-center text-lg-left">
-            <a href="<?php echo $url_jetassistance; ?>" class="btn btn-outline-light" target="_blank">
+            <a href="<?php echo $url_jetassistance; ?>" class="jet btn btn-outline-light" target="_blank">
                 <?php _e('Jet Assistance', AMC_TEXTDOMAIN); ?>
-                <i class="far fa-play-circle"></i>
+                <!-- <i class="far fa-play-circle"></i> -->
             </a>
         </div>
     </div>

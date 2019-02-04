@@ -29,6 +29,58 @@
       font-weight: 100;
     }
   }
+
+  .jet {
+    &::after {
+      background: url('../images/play-15.png') no-repeat center;
+      content: '';
+      display: inline-block;
+      height: 15px;
+      margin-left: 4px;
+      vertical-align: middle;
+      width: 15px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .additionnel {
+      margin-bottom: 28px;
+    }
+
+    .content {
+      p {
+        font-size: 13px;
+      }
+    }
+
+    .btn-outline-light {
+      font-size: 11.26px;
+      padding-bottom: 8px;
+      padding-top: 8px;
+    }
+
+    .jet {
+      &::after {
+        background-image: url('../images/play-21.png');
+        height: 21px;
+        margin-right: 7px;
+        width: 21px;
+      }
+    }
+
+    .wpcf7-form {
+      .buttons {
+        margin-top: 30px;
+      }
+
+      .wpcf7-submit {
+        font-size: 13px;
+        padding-bottom: 4px;
+        padding-top: 4px;
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
 .logos-carousel {
@@ -37,12 +89,18 @@
   .owl-item {
     img {
       width: initial;
+
+      @include media-breakpoint-down(xs) {
+        height: auto;
+        max-width: 80%;
+      }
     }
   }
 
-  .owl-stage {
+  .logo-item {
     align-items: center;
     display: flex;
+    height: 52px;
   }
 }
 
