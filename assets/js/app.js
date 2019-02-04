@@ -2,7 +2,7 @@ const $ = require('jquery')
 import '@babel/polyfill'
 import 'bootstrap'
 import './../images'
-// import './core/global'
+import './common'
 import './core/header'
 import './core/menu'
 import './core/scrollify'

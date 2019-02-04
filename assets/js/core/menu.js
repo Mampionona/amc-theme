@@ -1,3 +1,5 @@
+import 'jquery-scrollify'
+
 (function(w, d, undefined) {
   const menu_level_2 = d.querySelector('.menu-niveau-2')
   const menu_level_1 = d.querySelector('.menu-niveau-1')
@@ -15,7 +17,7 @@
     const regex = /menu\-item\-([0-9]+)/;
     const result = regex.exec(item.className)
     if (result) {
-      current_item = result[0]
+      const current_item = result[0]
 
       const old_item = menu_level_2.querySelector('.current-menu-item')
       if (old_item) {
@@ -33,19 +35,31 @@
     menu_level_2.classList.remove('in')
     menu_level_1.classList.remove('in')
     menu_level_1.querySelectorAll('.nav > .menu-item').forEach(menuItem)
-
-    // var wpcf7_form = document.getElementsByClassName('wpcf7-form');
-    // [].forEach.call(wpcf7_form, function (form) {
-    //   wpcf7.initForm(form);
-    // });
-
-    const wpcf7_form = document.querySelectorAll('.wpcf7-form')
-    wpcf7_form.forEach(form => wpcf7.initForm(form))
   })
 
   // navbar toggler
   d.querySelector('.navbar-toggler').addEventListener('click', function() {
     this.classList.add('out')
     menu_level_1.classList.add('in')
+  })
+
+  d.querySelectorAll('.menu-responsive a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (this.href.match(/#[a-z0-9\-]+/)) {        
+        // raha mitovy ny pathname-n'ilay lien sy window
+        if (w.location.href.includes(this.pathname)) {
+          e.preventDefault()
+          const hash = /(#[a-z0-9\-]+)/.exec(this.href)
+
+          if (hash) {
+            d.body.classList.remove('menu-in')
+            d.querySelector('.navbar-toggler').classList.remove('out')
+
+            $.scrollify.enable();
+            $.scrollify.move(hash[1])
+          }          
+        }
+      }
+    })
   })
 } (window, document))

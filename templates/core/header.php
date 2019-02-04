@@ -80,7 +80,7 @@
                             'theme_location' => 'secondary',
                             'container' => false,
                             'menu_class' => 'nav navbar-nav d-flex justify-content-center align-items-center',
-                            'walker' => new Onepage_WalkerOverride()
+                            // 'walker' => new ResponsiveWalker()
                         ));
                     }
                 ?>
