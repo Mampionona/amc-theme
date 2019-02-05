@@ -26,18 +26,22 @@
   }
 
   .owl-dot {
+    margin-bottom: 8px;
+
     .btn {
       color: rgba($color-text, .2);
       font-family: $font-footer;
-      font-weight: 600;
-      padding: 2px 37px;
+      font-weight: 300;
+      height: 30px;
+      line-height: 0.8;
+      padding: 0 34px;
 
       &::after {
         background-color: rgba($color-text, .2);
         content: '';
         display: block;
         height: 3px;
-        margin: -3px auto 0;
+        margin: 3px auto 0;
         width: 25px;
       }
     }
@@ -59,13 +63,13 @@
 
     &:first-of-type {
       .btn {
-        padding-left: 12px;
+        padding-left: 5px;
       }
     }
 
     &:last-of-type {
       .btn {
-        padding-right: 12px;
+        padding-right: 5px;
       }
     }
   }
@@ -97,6 +101,8 @@
     color: rgba($color-text, .1);
     font-size: 74.22px;
     font-weight: 100;
+    line-height: 1;
+    margin-bottom: 18px;
   }
 
   .titre {
@@ -124,7 +130,7 @@
       left: -194px;
       width: 180px;
       text-align: right;
-      top: -30px;
+      top: -11px;
     }
 
     > div {
@@ -140,9 +146,9 @@
       margin-bottom: 43px;
     }
     
-    .date {
-      margin: -28px 0;
-    }
+    // .date {
+    //   margin: -28px 0;
+    // }
 
     .titre {
       font-size: 20px;

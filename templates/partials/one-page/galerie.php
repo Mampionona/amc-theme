@@ -14,7 +14,7 @@
                     </div>
                 <?php endwhile; ?>
             </div>
-            <div class="owl-carousel histoires histoire-carousel">
+            <div class="owl-carousel histoires histoire-carousel full-width">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php
                         $titre = get_sub_field('titre');
@@ -45,7 +45,7 @@
                     </div>
                 <?php endwhile; ?>
             </div>
-            <div class="owl-dots d-flex flex-wrap justify-content-center" id="dates">
+            <div class="owl-dots d-flex overflow-hidden full-width" id="dates">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php
                         $date = get_sub_field('date');

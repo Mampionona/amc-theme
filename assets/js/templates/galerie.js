@@ -17,22 +17,28 @@ $(function() {
         .removeClass(animation)
         .eq(index).css('opacity', 1)
         .addClass(animation)
-
-      // $.scrollify.update()
     }
 
-    const resizeCarousel = () => {
-      owl.removeAttr('style')
+    const fullWidth = item => {
+      const window_width = $(window).width()
+      $(item).css({
+        left: 0,
+        width: 'initial'
+      })
 
-      if (window.innerWidth > 500) {
+      if (window_width > 500) {
         return
       }
 
-      owl.css({
-        left: ((owl.width() - $(window).width()) / 2),
-        width: $(window).width()
+      $(item).css({
+        left: ($(item).width() - window_width) / 2,
+        width: window_width
       })
     }
+
+    const resizeCarousel = () => (
+      document.querySelectorAll('.full-width').forEach(fullWidth)
+    )
 
     resizeCarousel()
 
