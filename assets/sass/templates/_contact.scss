@@ -40,8 +40,18 @@
     }
   }
 
+  .wpcf7 {
+    margin-bottom: 44px;
+  }
+
   @include media-breakpoint-up(xl) {
     .buttons {
+      .btn {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
+      
       .left,
       .right {
         flex: 1;
@@ -55,7 +65,13 @@
 
   @include media-breakpoint-down(lg) {
     .content {
-      margin-bottom: 44px;
+      margin-bottom: 0;
+
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     .map {

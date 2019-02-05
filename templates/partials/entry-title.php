@@ -5,7 +5,5 @@
 ?>
 
 <?php if (!$no_title) : ?>
-    <h2>
-        <?php echo !!$alt_title ? $alt_title : get_the_title(); ?>
-    </h2>
+    <h2><?php echo !!$alt_title ? $alt_title : get_the_title(); ?></h2>
 <?php endif; ?>
