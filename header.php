@@ -24,4 +24,4 @@
 <body <?php body_class() ?>>
 	<div id="page" class="hfeed site">
 		<?php get_template_part('templates/core/header'); ?>
-			<main id="ajax-content">
+			<main id="ajax-content" <?php echo is_front_page() ? 'style="background-image: url(\'' . get_the_post_thumbnail_url() . '\')"' : ''; ?>>

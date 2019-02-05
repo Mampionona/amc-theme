@@ -6,6 +6,14 @@
   .bottom-widget {
     display: none;
   }
+
+  main {
+    background: {
+      position: center;
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
 }
 
 .logo-amc {
