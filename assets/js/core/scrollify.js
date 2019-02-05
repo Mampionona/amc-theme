@@ -20,14 +20,19 @@ $(function() {
     after (index, elements) {
       header.classList.remove('out')
       navbar_toggler.classList.remove('out')
-      header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
-      navbar_toggler.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+      // header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+      // navbar_toggler.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
+
+      const section = elements[index][0]
+
+      // update logo & navbar-toggler position
+      header.style.top = navbar_toggler.style.top = `${section.offsetTop}px`
 
       if (window.innerWidth > 1199) {
         navbar_toggler.removeAttribute('style')
       }
 
-      const id = elements[index][0]['id']
+      const id = section.id
 
       if (id.length > 0) {
         const current = document.querySelector(`.menu-niveau-2 [data-hash=${id}]`)
@@ -53,7 +58,8 @@ $(function() {
       if (first_item) {
         first_item.classList.add('current')
       }
-      header.style.top = `${window.pageYOffset}px`
+      // header.style.top = `${window.pageYOffset}px`
+      // alert('resized')
     },
     // A callback that is fired after Scrollify's initialisation.
     afterRender () {
@@ -115,6 +121,11 @@ $(function() {
     $.scrollify.update()
     if (this.innerWidth > 1199) {
       navbar_toggler.removeAttribute('style')
+    }
+
+    const current = $.scrollify.current()
+    if (current) {
+      header.style.top = navbar_toggler.style.top = `${current[0].offsetTop}px`
     }
   })
 })

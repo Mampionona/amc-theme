@@ -1,4 +1,5 @@
 <div class="histoire-wrap">
+    <?php get_template_part('templates/partials/entry', 'title'); ?>
     <?php if (have_rows('histoires')): ?>
         <div class="histoire-carousel-wrap">
             <div class="header d-none d-xl-block">
@@ -53,7 +54,7 @@
                         $date = get_sub_field('date');
                         $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
                     ?>
-                    <div class="owl-dot">
+                    <div class="owl-dot" <?php echo !$date ? 'hidden' : ''; ?>>
                         <button class="btn"><?php echo $date; ?></button>
                     </div>
                 <?php endwhile; ?>

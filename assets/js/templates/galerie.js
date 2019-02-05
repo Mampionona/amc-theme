@@ -49,7 +49,11 @@ $(function() {
         callback(event)        
         $.scrollify.update()
       },
-      'translated.owl.carousel': callback
+      'translated.owl.carousel': (event) => {
+        callback(event)
+        $.scrollify.update()
+      },
+      'loaded.owl.lazy': () => $.scrollify.update()
     })
 
     owl.owlCarousel({

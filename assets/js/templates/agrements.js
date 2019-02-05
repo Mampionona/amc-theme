@@ -14,8 +14,11 @@ $(function() {
     // })
 
     owl.owlCarousel({
+      autoplay: true,
       items: 3,
       lazyLoad: true,
+      loop: true,
+      margin: 20,
       responsive: {
         992: {
           items: 5

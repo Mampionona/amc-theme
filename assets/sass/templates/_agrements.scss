@@ -88,12 +88,14 @@
 
   .owl-item {
     img {
+      max-height: 100%;
+      max-width: 100%;
       width: initial;
 
-      @include media-breakpoint-down(xs) {
-        height: auto;
-        max-width: 80%;
-      }
+      // @include media-breakpoint-down(xs) {
+      //   height: auto;
+      //   max-width: 80%;
+      // }
     }
   }
 
