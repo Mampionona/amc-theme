@@ -53,7 +53,7 @@ $(function() {
     })
 
     owl.owlCarousel({
-      autoplay: true,
+      // autoplay: true,
       dotsContainer: '#dates',
       lazyLoadEager: 2,
       items: 1,

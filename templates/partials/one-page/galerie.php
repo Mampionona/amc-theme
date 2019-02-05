@@ -20,13 +20,15 @@
                         $titre = get_sub_field('titre');
                         $photo = get_sub_field('photo');
                         $date = get_sub_field('date');
-                        $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
+                        // $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
                         $description = get_sub_field('description');
                     ?>
                     <div class="histoire-item">
                         <div class="row item-header d-xl-none">                            
                             <div class="col">
-                                <div class="date text-right"><?php echo $date; ?></div>
+                                <div class="date text-right <?php echo preg_match('#\-#', $date) ? 'long' : ''; ?>">
+                                    <?php echo str_replace(array(' ', '-'), array('', '<br>'), $date); ?>
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="titre"><?php echo $titre; ?></div>
