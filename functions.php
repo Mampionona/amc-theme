@@ -113,21 +113,21 @@ function get_current_menu_children($location, $menu_items = array()) {
 }
 
 // Update menu level 2
-add_action('wp_ajax_update_menu', 'amc_update_menu');
-add_action('wp_ajax_nopriv_update_menu', 'amc_update_menu');
+// add_action('wp_ajax_update_menu', 'amc_update_menu');
+// add_action('wp_ajax_nopriv_update_menu', 'amc_update_menu');
 
-function amc_update_menu() {
-    ob_start();
+// function amc_update_menu() {
+//     ob_start();
 
-    if (has_nav_menu('primary')) {
-        wp_nav_menu(array(
-            'theme_location' => 'primary',
-            'container' => false,
-            'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-start h-100',
-            'walker' => new Onepage_WalkerOverride()
-        ));
-    }
+//     if (has_nav_menu('primary')) {
+//         wp_nav_menu(array(
+//             'theme_location' => 'primary',
+//             'container' => false,
+//             'menu_class' => 'nav navbar-nav d-lg-flex justify-content-center align-items-start h-100',
+//             'walker' => new Onepage_WalkerOverride()
+//         ));
+//     }
 
-    $menu = ob_get_clean();
-    die(wp_send_json($menu));
-}
+//     $menu = ob_get_clean();
+//     die(wp_send_json($menu));
+// }

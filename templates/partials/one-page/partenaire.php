@@ -5,7 +5,10 @@
 ?>
 
 <div class="agrements-wrap">
-    <div class="content"><?php the_content(); ?></div>
+    <div class="content">
+        <?php get_template_part('templates/partials/entry', 'title'); ?>
+        <?php the_content(); ?>
+    </div>
 
     <?php if (have_rows('logos_des_partenaires')): ?>
         <div class="owl-carousel logos-carousel">

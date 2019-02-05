@@ -4,7 +4,10 @@
             <div class="header d-none d-xl-block">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php $titre = get_sub_field('titre'); ?>
-                    <?php $date = get_sub_field('date'); ?>
+                    <?php
+                        $date = get_sub_field('date');
+                        $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
+                    ?>
                     <div class="d-flex animated">
                         <div class="date"><?php echo $date; ?></div>
                         <div class="titre"><?php echo $titre; ?></div>
@@ -17,6 +20,7 @@
                         $titre = get_sub_field('titre');
                         $photo = get_sub_field('photo');
                         $date = get_sub_field('date');
+                        $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
                         $description = get_sub_field('description');
                     ?>
                     <div class="histoire-item">
@@ -41,9 +45,12 @@
                     </div>
                 <?php endwhile; ?>
             </div>
-            <div class="owl-dots d-flex justify-content-center" id="dates">
+            <div class="owl-dots d-flex flex-wrap justify-content-center" id="dates">
                 <?php while (have_rows('histoires')) : the_row(); ?>
-                    <?php $date = get_sub_field('date'); ?>
+                    <?php
+                        $date = get_sub_field('date');
+                        $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
+                    ?>
                     <div class="owl-dot">
                         <button class="btn"><?php echo $date; ?></button>
                     </div>
