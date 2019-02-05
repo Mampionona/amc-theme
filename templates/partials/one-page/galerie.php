@@ -32,16 +32,16 @@
                                 <div class="titre"><?php echo $titre; ?></div>
                             </div>
                         </div>
-                        <?php if ($photo || $description) : ?>
-                            <figure>
-                                <?php if ($photo) : ?>
-                                    <img class="owl-lazy" data-src="<?php echo $photo['sizes']['histoire']; ?>" alt="">
-                                <?php endif; ?>
-                                <?php if ($description) : ?>
-                                    <figcaption><?php echo $description; ?></figcaption>
-                                <?php endif; ?>
-                            </figure>
-                        <?php endif;?>
+                        <figure>
+                            <img
+                                class="owl-lazy" 
+                                data-src="<?php echo $photo ? $photo['sizes']['histoire'] : asset_path('images/placeholder.jpg'); ?>" 
+                                alt="<?php echo $titre; ?>"
+                            />
+                            <?php if ($description) : ?>
+                                <figcaption><?php echo $description; ?></figcaption>
+                            <?php endif; ?>
+                        </figure>
                     </div>
                 <?php endwhile; ?>
             </div>
