@@ -10,5 +10,8 @@
     }
 
     hideLoader()
+
+    // Google invisible recaptcha
+    renderGoogleInvisibleRecaptchaFront()
   })
 } (window, document))
