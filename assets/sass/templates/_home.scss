@@ -14,6 +14,12 @@
       size: cover;
     }
   }
+
+  .page-wrapper {
+    &:only-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .logo-amc {
