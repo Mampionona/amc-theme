@@ -104,28 +104,4 @@ $(function() {
   })
 
   $(document).on('click', '.scroll-down', () => $.scrollify.next())
-
-  navbar_toggler.addEventListener('click', () => {
-    body.classList.add('menu-in')
-    $.scrollify.disable()
-  })
-
-  document.querySelector('.close-menu').addEventListener('click', () => {
-    body.classList.remove('menu-in')
-    navbar_toggler.classList.remove('out')
-    $.scrollify.enable()
-    $.scrollify.update()
-  })
-
-  window.addEventListener('resize', function () {
-    $.scrollify.update()
-    if (this.innerWidth > 1199) {
-      navbar_toggler.removeAttribute('style')
-    }
-
-    const current = $.scrollify.current()
-    if (current) {
-      header.style.top = navbar_toggler.style.top = `${current[0].offsetTop}px`
-    }
-  })
 })

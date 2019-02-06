@@ -51,6 +51,12 @@ $separator-width: 77px;
         color: $color-text;
       }
     }
+
+    .current-menu-item {
+      a {
+        color: $color-blue-light;
+      }
+    }
   }
 
   .navbar-brand {

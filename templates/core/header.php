@@ -57,7 +57,7 @@
         ?>
     </div>
 
-    <div class="menu-responsive">
+    <div class="menu-responsive" id="menu-responsive">
         <div class="wrap">
             <button class="btn close-menu">
                 <img src="<?php echo asset_path('images/close.png'); ?>" alt="close" />

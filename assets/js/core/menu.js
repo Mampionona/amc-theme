@@ -3,6 +3,8 @@ import 'jquery-scrollify'
 (function(w, d, undefined) {
   const menu_level_2 = d.querySelector('.menu-niveau-2')
   const menu_level_1 = d.querySelector('.menu-niveau-1')
+  const navbar_toggler = d.querySelector('.navbar-toggler')
+  const body = d.body
 
   w.addEventListener('DOMContentLoaded', () => (
     menu_level_2.classList.add('in')
@@ -43,6 +45,7 @@ import 'jquery-scrollify'
     menu_level_1.classList.add('in')
   })
 
+  // défiler ou ouvrir une nouvelle page
   d.querySelectorAll('.menu-responsive a').forEach(link => {
     link.addEventListener('click', function (e) {
       if (this.href.match(/#[a-z0-9\-]+/)) {        
@@ -61,5 +64,53 @@ import 'jquery-scrollify'
         }
       }
     })
+  })
+
+  // mettre en surbrillance le menu actif
+  const menu = d.getElementById('menu-responsive')
+
+  // Mettre en surbrillance le lien actif
+  const highlightActiveLink = () => {
+    const { pathname, hash } = w.location
+    
+    menu.querySelectorAll('a').forEach(({ parentNode }) => parentNode.classList.remove('current-menu-item'))
+
+    let link
+    
+    if (link = menu.querySelector(`[href*="${pathname + hash}"]`)) {
+      link.parentNode.classList.add('current-menu-item')
+    } else if (link = menu.querySelector(`[href$="${pathname}"]`)) {
+      link.parentNode.classList.add('current-menu-item')
+    }
+  }
+
+  // mettre à jour le menu responsive après ajax
+  d.addEventListener('AWSSuccess', highlightActiveLink)
+
+  // afficher menu mobile
+  navbar_toggler.addEventListener('click', () => {
+    body.classList.add('menu-in')
+    $.scrollify.disable()
+    highlightActiveLink()
+  })
+
+  // fermer le menu
+  document.querySelector('.close-menu').addEventListener('click', () => {
+    body.classList.remove('menu-in')
+    navbar_toggler.classList.remove('out')
+    $.scrollify.enable()
+    $.scrollify.update()
+  })
+
+  window.addEventListener('resize', function () {
+    $.scrollify.update()
+    if (this.innerWidth > 1199) {
+      navbar_toggler.removeAttribute('style')
+    }
+
+    const current = $.scrollify.current()
+    if (current) {
+      header.style.top = navbar_toggler.style.top = `${current[0].offsetTop}px`
+    }
   })
 } (window, document))
