@@ -60,7 +60,8 @@ $(function() {
             // document.getElementById('loader').classList.remove('in')
           }, 600)
         }
-      }
+      },
+      'translated.owl.carousel': callback
     })
 
     owl.owlCarousel({
