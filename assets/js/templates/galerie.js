@@ -21,11 +21,15 @@ $(function() {
 
     const fullWidth = item => {
       const window_width = $(window).width()
-      $(item).css({
-        left: 0,
-        width: 'initial'
-      })
 
+      let current_styles = item.getAttribute('style')
+      if ('undefined' !== typeof current_styles && current_styles) {
+        // supprime les propriétés CSS left et width
+        current_styles = current_styles.replace(/(left|width):\s?\-?\d+(px|%|vh|rem);/gi, '')
+        item.setAttribute('style', current_styles)
+      }
+
+      // boxé pour les écrans > 500px
       if (window_width > 500) {
         return
       }
@@ -48,20 +52,18 @@ $(function() {
       'initialized.owl.carousel': (event) => {
         callback(event)        
         $.scrollify.update()
-      },
-      'translated.owl.carousel': (event) => {
-        callback(event)
-        $.scrollify.update()
-      },
-      'loaded.owl.lazy': () => $.scrollify.update()
+        const current = $.scrollify.current()
+        $.scrollify.move(0)
+        if (current) {
+          setTimeout(() => $.scrollify.move(`#${current[0]['id']}`), 1000)
+        }
+      }
     })
 
     owl.owlCarousel({
       autoplay: true,
       dotsContainer: '#dates',
-      lazyLoadEager: 2,
       items: 1,
-      lazyLoad: true,
       loop: true,
       smartSpeed: 1000
     })

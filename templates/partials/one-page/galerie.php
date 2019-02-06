@@ -37,8 +37,7 @@
                         </div>
                         <figure>
                             <img
-                                class="owl-lazy" 
-                                data-src="<?php echo $photo ? $photo['sizes']['histoire'] : asset_path('images/placeholder.jpg'); ?>" 
+                                src="<?php echo $photo ? $photo['sizes']['histoire'] : asset_path('images/placeholder.jpg'); ?>" 
                                 alt="<?php echo $titre; ?>"
                             />
                             <?php if ($description) : ?>
