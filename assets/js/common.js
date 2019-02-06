@@ -12,6 +12,11 @@
     hideLoader()
 
     // Google invisible recaptcha
-    renderGoogleInvisibleRecaptchaFront()
+    if ('function' === typeof renderGoogleInvisibleRecaptchaFront) {
+      renderGoogleInvisibleRecaptchaFront()
+    }
   })
+ 
+  // mettre à jour scrollify pour l'evenement cf7 wpcf7submit
+  d.addEventListener('wpcf7submit', () => $.scrollify.update())
 } (window, document))
