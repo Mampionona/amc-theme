@@ -20,8 +20,6 @@ $(function() {
     after (index, elements) {
       header.classList.remove('out')
       navbar_toggler.classList.remove('out')
-      // header.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
-      // navbar_toggler.style.top = index === 0 ? 0 : `${window.pageYOffset}px`
 
       const section = elements[index][0]
 
@@ -58,8 +56,6 @@ $(function() {
       if (first_item) {
         first_item.classList.add('current')
       }
-      // header.style.top = `${window.pageYOffset}px`
-      // alert('resized')
     },
     // A callback that is fired after Scrollify's initialisation.
     afterRender () {

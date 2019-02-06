@@ -55,7 +55,10 @@ $(function() {
         const current = $.scrollify.current()
         $.scrollify.move(0)
         if (current) {
-          setTimeout(() => $.scrollify.move(`#${current[0]['id']}`), 1000)
+          setTimeout(() => {
+            $.scrollify.move(`#${current[0]['id']}`)
+            // document.getElementById('loader').classList.remove('in')
+          }, 600)
         }
       }
     })

@@ -106,3 +106,21 @@ h2 {
 .full-width {
   position: relative;
 }
+
+.loader {
+  background-color: $color-blue;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transform: translateY(-20px);
+  transition: .3s;
+  visibility: hidden;
+  z-index: 9;
+
+  &.in {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
