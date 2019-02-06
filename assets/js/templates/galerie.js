@@ -67,6 +67,7 @@ $(function() {
       autoplay: true,
       dotsContainer: '#dates',
       items: 1,
+      lazyLoad: true,
       loop: true,
       smartSpeed: 1000
     })

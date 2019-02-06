@@ -16,7 +16,13 @@
       renderGoogleInvisibleRecaptchaFront()
     }
   })
+
+  const update = () => $.scrollify.update()
  
-  // mettre à jour scrollify pour l'evenement cf7 wpcf7submit
-  d.addEventListener('wpcf7submit', () => $.scrollify.update())
+  // cf7 DOM events
+  d.addEventListener('wpcf7invalid', update)
+  d.addEventListener('wpcf7spam', update)
+  d.addEventListener('wpcf7mailsent', update)
+  d.addEventListener('wpcf7mailfailed ', update)
+  d.addEventListener('wpcf7submit', update)
 } (window, document))
