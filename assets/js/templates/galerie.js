@@ -55,13 +55,21 @@ $(function() {
         const current = $.scrollify.current()
         $.scrollify.move(0)
         if (current) {
+          const current_section = current[0]
           setTimeout(() => {
-            $.scrollify.move(`#${current[0]['id']}`)
-            // document.getElementById('loader').classList.remove('in')
+            const top = current_section.offsetTop
+            $.scrollify.move(`#${current_section['id']}`)
+            document.getElementById('header').style.top = `${top}px`
+            if (window.innerWidth <= 500) {
+              document.querySelector('.navbar-toggler').style.top = `${top}px`
+            }
           }, 600)
         }
       },
-      'translated.owl.carousel': callback
+      'translated.owl.carousel': event => {
+        callback(event)
+        $.scrollify.update()
+      }
     })
 
     owl.owlCarousel({
