@@ -52,9 +52,37 @@ $(function() {
     // A callback that is fired after the window is resized.
     afterResize() {
       clearCurrentClass()
-      const first_item = document.querySelector(firstCurrentMenuItem)
-      if (first_item) {
-        first_item.classList.add('current')
+
+      $.scrollify.update()
+
+      const current = $.scrollify.current()
+      if (current) {
+        setTimeout(() => {
+          // destructuration
+          const {
+            id,
+            offsetTop: top
+          } = current[0]
+
+          // update logo and navbar-toggler position
+          header.style.top = `${top}px`
+
+          if (window.innerWidth < 1200) {
+            navbar_toggler.style.top = `${top}px`
+          } else {
+            navbar_toggler.removeAttribute('style')
+          }
+
+          // move to current section
+          $.scrollify.move(`#${id}`)
+
+          let section
+
+          // update menu level 2
+          if (section = document.querySelector(`.menu-niveau-2 [data-hash="${id}"]`)) {
+            section.classList.add('current')
+          }
+        }, 1200)
       }
     },
     // A callback that is fired after Scrollify's initialisation.
