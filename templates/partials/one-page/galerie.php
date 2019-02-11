@@ -1,7 +1,7 @@
-<div class="histoire-wrap">
+<div class="galerie-wrap">
     <?php get_template_part('templates/partials/entry', 'title'); ?>
     <?php if (have_rows('histoires')): ?>
-        <div class="histoire-carousel-wrap">
+        <div class="galerie-carousel-wrap">
             <div class="header d-none d-xl-block">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php $titre = get_sub_field('titre'); ?>
@@ -21,7 +21,6 @@
                         $titre = get_sub_field('titre');
                         $photo = get_sub_field('photo');
                         $date = get_sub_field('date');
-                        // $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
                         $description = get_sub_field('description');
                     ?>
                     <div class="histoire-item">
@@ -50,16 +49,18 @@
                     </div>
                 <?php endwhile; ?>
             </div>
-            <div class="owl-dots d-flex overflow-hidden full-width" id="dates">
-                <?php while (have_rows('histoires')) : the_row(); ?>
-                    <?php
-                        $date = get_sub_field('date');
-                        $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
-                    ?>
-                    <div class="owl-dot" <?php echo !$date ? 'hidden' : ''; ?>>
-                        <button class="btn"><?php echo $date; ?></button>
-                    </div>
-                <?php endwhile; ?>
+            <div class="overflow-hidden full-width dots-container">
+                <div class="owl-dots d-flex swipeable" id="dates">
+                    <?php while (have_rows('histoires')) : the_row(); ?>
+                        <?php
+                            $date = get_sub_field('date');
+                            $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
+                        ?>
+                        <div class="owl-dot" <?php echo !$date ? 'hidden' : ''; ?>>
+                            <button class="btn"><?php echo $date; ?></button>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
             </div>
         </div>
     <?php endif; ?>

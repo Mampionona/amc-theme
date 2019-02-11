@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.0",
+    "hammerjs": "^2.0.8",
     "jquery-scrollify": "^1.0.19",
     "owl.carousel": "^2.3.4"
   }
