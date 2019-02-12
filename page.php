@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section>
+<section class="page-wrapper scrollify">
     <div class="container">
         <div class="row">
             <div class="col" role="main">
