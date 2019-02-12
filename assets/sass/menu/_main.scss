@@ -47,6 +47,7 @@
 .nav {
   > li {
     position: relative;
+    width: 100%;
 
     > a {
       display: block;
@@ -153,6 +154,10 @@
 
 .menu-niveau-1 {
   transform: translateX(204px);
+
+  .menu-item {
+    text-align: right;
+  }
 
   .nav {
     > .menu-item {
