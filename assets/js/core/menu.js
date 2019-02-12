@@ -7,6 +7,7 @@ import 'jquery-scrollify';
   };
   const navbar_toggler = d.querySelector('.navbar-toggler');
   const body = d.body;
+  const current_class = 'current-menu-item';
 
   w.addEventListener('DOMContentLoaded', () => (
     MENU[2].classList.add('in')
@@ -14,7 +15,7 @@ import 'jquery-scrollify';
 
   // Update menu menu_level_ 2
   const menuItem = item => {
-    if (!item.className.includes('current-menu-item')) {
+    if (!item.className.includes(current_class)) {
       return;
     }    
 
@@ -25,10 +26,10 @@ import 'jquery-scrollify';
 
       const old_item = MENU[2].querySelector('.current-menu-item');
       if (old_item) {
-        old_item.classList.remove('current-menu-item', 'current_page_item');
+        old_item.classList.remove(current_class, 'current_page_item');
       }
 
-      MENU[2].querySelector(`.nav > .${current_item}`).classList.add('current-menu-item', 'current_page_item');
+      MENU[2].querySelector(`.nav > .${current_item}`).classList.add(current_class, 'current_page_item');
       setTimeout(() => MENU[2].classList.add('in'), 600);
     }
   };
@@ -69,15 +70,15 @@ import 'jquery-scrollify';
   const highlightActiveLink = () => {
     const { pathname, hash } = w.location;
     
-    menu.querySelectorAll('a').forEach(({ parentNode }) => parentNode.classList.remove('current-menu-item'));
+    menu.querySelectorAll('a').forEach(({ parentNode }) => parentNode.classList.remove(current_class));
 
     const link1 = menu.querySelector(`[href*="${pathname + hash}"]`);
     const link2 = menu.querySelector(`[href$="${pathname}"]`);
     
     if (link1) {
-      link1.parentNode.classList.add('current-menu-item');
+      link1.parentNode.classList.add(current_class);
     } else if (link2) {
-      link2.parentNode.classList.add('current-menu-item');
+      link2.parentNode.classList.add(current_class);
     }
   };
 
@@ -85,7 +86,8 @@ import 'jquery-scrollify';
   d.addEventListener('AWSSuccess', highlightActiveLink);
 
   // afficher menu mobile
-  navbar_toggler.addEventListener('click', function () {
+  navbar_toggler.addEventListener('click', () => {
+    // desactiver scrollify
     if (w.innerWidth < 1200) {
       $.scrollify.disable();
     }
@@ -96,7 +98,7 @@ import 'jquery-scrollify';
   });
 
   // fermer le menu
-  document.querySelector('.close-menu').addEventListener('click', () => {
+  d.querySelector('.close-menu').addEventListener('click', () => {
     body.classList.remove('menu-in');
     navbar_toggler.classList.remove('out');
     $.scrollify.enable();
