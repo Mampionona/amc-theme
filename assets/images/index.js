@@ -1,2 +1,2 @@
-import './placeholder.jpg'
-import './close.png'
+import './placeholder.jpg';
+import './close.png';

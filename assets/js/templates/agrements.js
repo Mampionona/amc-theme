@@ -1,8 +1,8 @@
-import 'owl.carousel'
+import 'owl.carousel';
 
 $(function() {
   const init = () => {
-    const owl = $('.logos-carousel')
+    const owl = $('.logos-carousel');
 
     owl.owlCarousel({
       autoplay: true,
@@ -15,10 +15,10 @@ $(function() {
           items: 5
         }
       }
-    })
-  }
+    });
+  };
 
-  init()
+  init();
 
-  document.addEventListener('AWSSuccess', init)
-})
+  document.addEventListener('AWSSuccess', init);
+});

@@ -6,7 +6,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
     for (var i = 0; i < this.length; i++) {
       callback.call(thisArg, this[i], i, this);
     }
-  }
+  };
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
