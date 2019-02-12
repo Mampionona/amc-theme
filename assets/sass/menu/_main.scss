@@ -173,7 +173,11 @@
     }
   }
 
-  &.in {
+  // &.in {
+  //   transform: translateX(0);
+  // }
+
+  .menu-in & {
     transform: translateX(0);
   }
 }

@@ -39,15 +39,12 @@ $(function() {
           clearCurrentClass()
           current.classList.add('current')
         }
-      }
 
-      document.querySelectorAll('.page-wrapper.has-background').forEach(page => {
-        const hash = window.location.hash.replace(/#/, '')
-        page.classList.remove('in')
-        if (page.id == hash) {
-          page.classList.add('in')
-        }
-      })
+        document.querySelectorAll('.page-wrapper.has-background').forEach(page => {
+          page.classList.remove('in')
+          if (page.id == id) page.classList.add('in')
+        })
+      }
     },
     // A callback that is fired after the window is resized.
     afterResize() {
@@ -116,6 +113,8 @@ $(function() {
     if (first) {
       first.classList.add('current')
     }
+
+    console.log($.scrollify.current())
   })
 
   // activation ancre menu niveau 2

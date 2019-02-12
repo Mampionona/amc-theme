@@ -39,12 +39,6 @@ import 'jquery-scrollify'
     menu_level_1.querySelectorAll('.nav > .menu-item').forEach(menuItem)
   })
 
-  // navbar toggler
-  d.querySelector('.navbar-toggler').addEventListener('click', function() {
-    this.classList.add('out')
-    menu_level_1.classList.add('in')
-  })
-
   // défiler ou ouvrir une nouvelle page
   d.querySelectorAll('.menu-responsive a').forEach(link => {
     link.addEventListener('click', function (e) {
@@ -88,9 +82,13 @@ import 'jquery-scrollify'
   d.addEventListener('AWSSuccess', highlightActiveLink)
 
   // afficher menu mobile
-  navbar_toggler.addEventListener('click', () => {
+  navbar_toggler.addEventListener('click', function () {
+    if (w.innerWidth < 1200) {
+      $.scrollify.disable()
+    }
+
     body.classList.add('menu-in')
-    $.scrollify.disable()
+
     highlightActiveLink()
   })
 
@@ -106,6 +104,10 @@ import 'jquery-scrollify'
     $.scrollify.update()
     if (this.innerWidth > 1199) {
       navbar_toggler.removeAttribute('style')
+
+      if ($.scrollify.isDisabled()) {
+        $.scrollify.enable()
+      }
     }
 
     const current = $.scrollify.current()

@@ -17,9 +17,9 @@
   }
 
   &.out {
-    @include media-breakpoint-up(xl) {
-      transform: translateX(70px);
-    }
+    // @include media-breakpoint-up(xl) {
+    //   transform: translateX(70px);
+    // }
 
     @include media-breakpoint-down(lg) {
       opacity: 0;
@@ -30,6 +30,12 @@
   &:hover {
     .bar-icon {
       border-color: $color-text;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .menu-in & {
+      transform: translateX(70px);
     }
   }
 
