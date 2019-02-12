@@ -14,7 +14,7 @@
         <div class="owl-carousel logos-carousel">
             <?php while (have_rows('logos_des_partenaires')) : the_row(); ?>
                 <?php $logo = get_sub_field('logo'); ?>
-                <div class="logo-item">
+                <div class="logo-item d-flex align-items-center">
                     <img class="owl-lazy" data-src="<?php echo $logo; ?>" alt="">
                 </div>
             <?php endwhile; ?>
@@ -28,7 +28,6 @@
         <div class="col-lg-5 text-center text-lg-left">
             <a href="<?php echo $url_jetassistance; ?>" class="jet btn btn-outline-light" target="_blank">
                 <?php _e('Jet Assistance', AMC_TEXTDOMAIN); ?>
-                <!-- <i class="far fa-play-circle"></i> -->
             </a>
         </div>
     </div>

@@ -4,15 +4,6 @@ $(function() {
   const init = () => {
     const owl = $('.logos-carousel')
 
-    // const callback = () => (
-    //   owl.find('.logo-item').height(owl.height())
-    // )
-
-    // owl.on({
-    //   'initialized.owl.carousel': callback,
-    //   'loaded.owl.lazy': callback
-    // })
-
     owl.owlCarousel({
       autoplay: true,
       items: 3,
