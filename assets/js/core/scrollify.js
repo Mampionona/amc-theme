@@ -1,11 +1,13 @@
 import 'jquery-scrollify';
 
 $(function() {
-  const header = document.getElementById('header');
-  const navbar_toggler = document.querySelector('.navbar-toggler');
+  const w = window;
+  const d = document;
+  const header = d.getElementById('header');
+  const navbar_toggler = d.querySelector('.navbar-toggler');
 
   const clearCurrentClass = () => (
-    document.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
+    d.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
   );
 
   $.scrollify({
@@ -24,27 +26,27 @@ $(function() {
       // update logo & navbar-toggler position
       header.style.top = navbar_toggler.style.top = `${section.offsetTop}px`;
 
-      if (window.innerWidth > 1199) {
+      if (w.innerWidth > 1199) {
         navbar_toggler.removeAttribute('style');
       }
 
       const id = section.id;
 
       if (id.length > 0) {
-        const current = document.querySelector(`.menu-niveau-2 [data-hash=${id}]`);
+        const current = d.querySelector(`.menu-niveau-2 [data-hash=${id}]`);
 
         if (current) {
           clearCurrentClass();
           current.classList.add('current');
         }
 
-        document.querySelectorAll('.page-wrapper.has-background').forEach(page => {
+        d.querySelectorAll('.page-wrapper.has-background').forEach(page => {
           page.classList.remove('in');
           if (page.id == id) page.classList.add('in');
         });
       }
     },
-    // A callback that is fired after the window is resized.
+    // A callback that is fired after the w is resized.
     afterResize() {
       clearCurrentClass();
 
@@ -62,7 +64,7 @@ $(function() {
           // update logo and navbar-toggler position
           header.style.top = `${top}px`;
 
-          if (window.innerWidth < 1200) {
+          if (w.innerWidth < 1200) {
             navbar_toggler.style.top = `${top}px`;
           } else {
             navbar_toggler.removeAttribute('style');
@@ -72,7 +74,7 @@ $(function() {
           $.scrollify.move(`#${id}`);
 
           // update menu level 2
-          const section = document.querySelector(`.menu-niveau-2 [data-hash="${id}"]`);
+          const section = d.querySelector(`.menu-niveau-2 [data-hash="${id}"]`);
           if (section) {
             section.classList.add('current');
           }
@@ -82,14 +84,14 @@ $(function() {
     // A callback that is fired after Scrollify's initialisation.
     afterRender () {
       clearCurrentClass();
-      const first_item = document.querySelector('.menu-niveau-2 .current-menu-item .menu-item');
+      const first_item = d.querySelector('.menu-niveau-2 .current-menu-item .menu-item');
       if (first_item) {
         first_item.classList.add('current');
       }
     }
   });
   
-  document.addEventListener('AWSSuccess', () => {
+  d.addEventListener('AWSSuccess', () => {
     if ($.scrollify.isDisabled()) {
       $.scrollify.enable();
     }
@@ -101,11 +103,11 @@ $(function() {
     header.style.top = 0;
     navbar_toggler.style.top = 0;
 
-    if (window.innerWidth > 1199) {
+    if (w.innerWidth > 1199) {
       navbar_toggler.removeAttribute('style');
     }
 
-    const current_menu_item = document.querySelector('.menu-niveau-2 .current-menu-item');
+    const current_menu_item = d.querySelector('.menu-niveau-2 .current-menu-item');
     const first = current_menu_item.querySelector('.menu-item');
     if (first) {
       first.classList.add('current');
@@ -121,5 +123,5 @@ $(function() {
     }
   });
 
-  $(document).on('click', '.scroll-down', () => $.scrollify.next());
+  $(d).on('click', '.scroll-down', () => $.scrollify.next());
 });

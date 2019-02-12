@@ -1,13 +1,15 @@
 import 'jquery-scrollify';
 
 (function(w, d, undefined) {
-  const menu_level_2 = d.querySelector('.menu-niveau-2');
-  const menu_level_1 = d.querySelector('.menu-niveau-1');
+  const MENU = {
+    1: d.querySelector('.menu-niveau-1'),
+    2: d.querySelector('.menu-niveau-2')
+  };
   const navbar_toggler = d.querySelector('.navbar-toggler');
   const body = d.body;
 
   w.addEventListener('DOMContentLoaded', () => (
-    menu_level_2.classList.add('in')
+    MENU[2].classList.add('in')
   ));
 
   // Update menu menu_level_ 2
@@ -21,22 +23,22 @@ import 'jquery-scrollify';
     if (result) {
       const current_item = result[0];
 
-      const old_item = menu_level_2.querySelector('.current-menu-item');
+      const old_item = MENU[2].querySelector('.current-menu-item');
       if (old_item) {
         old_item.classList.remove('current-menu-item', 'current_page_item');
       }
 
-      menu_level_2.querySelector(`.nav > .${current_item}`).classList.add('current-menu-item', 'current_page_item');
-      setTimeout(() => menu_level_2.classList.add('in'), 600);
+      MENU[2].querySelector(`.nav > .${current_item}`).classList.add('current-menu-item', 'current_page_item');
+      setTimeout(() => MENU[2].classList.add('in'), 600);
     }
   };
 
   // Update menu level2 after AWS Success
   d.addEventListener('AWSSuccess', () => {
     d.querySelector('.navbar-toggler').classList.remove('out');
-    menu_level_2.classList.remove('in');
-    menu_level_1.classList.remove('in');
-    menu_level_1.querySelectorAll('.nav > .menu-item').forEach(menuItem);
+    MENU[2].classList.remove('in');
+    MENU[1].classList.remove('in');
+    MENU[1].querySelectorAll('.nav > .menu-item').forEach(menuItem);
   });
 
   // défiler ou ouvrir une nouvelle page
@@ -101,7 +103,7 @@ import 'jquery-scrollify';
     $.scrollify.update();
   });
 
-  window.addEventListener('resize', function () {
+  w.addEventListener('resize', function () {
     $.scrollify.update();
     if (this.innerWidth > 1199) {
       navbar_toggler.removeAttribute('style');
