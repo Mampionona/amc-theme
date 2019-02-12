@@ -79,7 +79,7 @@
                         wp_nav_menu(array(
                             'theme_location' => 'secondary',
                             'container' => false,
-                            'menu_class' => 'nav navbar-nav d-flex justify-content-center align-items-center'
+                            'menu_class' => 'nav navbar-nav d-flex justify-content-center align-items-center text-center'
                         ));
                     }
                 ?>
