@@ -9,8 +9,13 @@
     margin-top: 17px;
   }
 
+  .horaires,
+  address {
+    line-height: 16px;
+  }
+
   .horaires {
-    line-height: 12px;
+    // line-height: 12px;
     margin-top: 8px;
 
     strong {
@@ -19,7 +24,7 @@
   }
 
   address {
-    line-height: 12px;
+    // line-height: 12px;
 
     strong {
       font-size: 12px;

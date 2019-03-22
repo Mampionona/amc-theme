@@ -1,7 +1,7 @@
 body {
   color: $color-text;
   font-family: $font-text;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 300;
 
   @include media-breakpoint-down(lg) {
