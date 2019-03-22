@@ -10,7 +10,7 @@
 }
 
 @mixin subtitle {
-  color: $color-blue-light;
+  color: lighten($color-blue-light, 20%);
   font-size: 16px;
   font-weight: 100;
   line-height: 18px;

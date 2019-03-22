@@ -15,13 +15,13 @@
 
       &::before,
       &::after {
-        color: rgba($color-text, .17);
+        color: rgba($color-text, .3);
         content: '|';
       }
     }
 
     a {
-      color: rgba($color-text, .17);
+      color: rgba($color-text, .3);
       font-family: $font-footer;
       // font-size: 10px;
       margin: 0 8px;

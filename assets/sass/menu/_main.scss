@@ -123,7 +123,8 @@
   .sub-menu {
     a {
       @include media-breakpoint-up(xl) {
-        color: $color-navigation-2;
+        // color: $color-navigation-2;
+        color: lighten($color-blue, 50%);
         padding-left: 30px;
         padding-right: 0;
       }
