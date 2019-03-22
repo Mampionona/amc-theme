@@ -132,6 +132,7 @@ $(function() {
 
     owl.owlCarousel({
       autoplay: true,
+      autoplayTimeout: 20000,
       dotsContainer: '#dates',
       items: 1,
       lazyLoad: true,
