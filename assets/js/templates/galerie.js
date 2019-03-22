@@ -133,11 +133,18 @@ $(function() {
     owl.owlCarousel({
       autoplay: true,
       autoplayTimeout: 20000,
-      dotsContainer: '#dates',
+      dotsContainer: '.step-dots',
       items: 1,
       lazyLoad: true,
       loop: true,
-      smartSpeed: 1000
+      smartSpeed: 1000,
+      onInitialized () {
+        document.querySelectorAll('.step-dots').forEach(dots_container => {
+          if (dots_container.querySelector('.bullet')) {
+            dots_container.classList.add('justify-content-center');
+          }
+        });
+      }
     });
 
     $('.owl-dot').on('click', function () {

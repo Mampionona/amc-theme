@@ -50,13 +50,13 @@
                 <?php endwhile; ?>
             </div>
             <div class="overflow-hidden full-width dots-container">
-                <div class="owl-dots d-flex swipeable" id="dates">
+                <div class="owl-dots d-flex swipeable step-dots">
                     <?php while (have_rows('histoires')) : the_row(); ?>
                         <?php
                             $date = get_sub_field('date');
                             $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
                         ?>
-                        <div class="owl-dot" <?php echo !$date ? 'hidden' : ''; ?>>
+                        <div class="owl-dot <?php echo !$date ? 'bullet' : ''; ?>">
                             <button class="btn"><?php echo $date; ?></button>
                         </div>
                     <?php endwhile; ?>

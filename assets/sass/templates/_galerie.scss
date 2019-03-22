@@ -30,48 +30,70 @@
   .owl-dot {
     margin-bottom: 8px;
 
-    .btn {
-      color: rgba($color-text, .2);
-      font-family: $font-footer;
-      font-weight: 300;
-      height: 30px;
-      line-height: 0.8;
-      padding: 0 34px;
-
-      &::after {
-        background-color: rgba($color-text, .2);
-        content: '';
-        display: block;
-        height: 3px;
-        margin: 3px auto 0;
-        width: 25px;
-      }
-    }
-
-    &.active,
-    &:hover {
+    &.bullet {
       .btn {
-        color: $color-text;
+        padding-left: 8px;
+        padding-right: 8px;
 
-        &::after {
-          background-color: $color-blue-light;
+        &::before {
+          background-color: rgba($white, .2);
+          border-radius: 50%;
+          content: '';
+          display: block;
+          height: 8px;
+          width: 8px;
         }
       }
-    }
 
-    &:not(:first-of-type) {
-      border-left: 1px solid rgba($color-text, .2);
-    }
-
-    &:first-of-type {
-      .btn {
-        padding-left: 5px;
+      &.active .btn::before {
+        background-color: rgba($white, .8);
       }
     }
 
-    &:last-of-type {
+    &:not(.bullet) {
       .btn {
-        padding-right: 5px;
+        color: rgba($color-text, .2);
+        font-family: $font-footer;
+        font-weight: 300;
+        height: 30px;
+        line-height: 0.8;
+        padding: 0 34px;
+
+        &::after {
+          background-color: rgba($color-text, .2);
+          content: '';
+          display: block;
+          height: 3px;
+          margin: 3px auto 0;
+          width: 25px;
+        }
+      }
+
+      &.active,
+      &:hover {
+        .btn {
+          color: $color-text;
+
+          &::after {
+            background-color: $color-blue-light;
+          }
+        }
+      }
+
+      &:not(:first-of-type) {
+        border-left: 1px solid rgba($color-text, .2);
+      }
+
+      &:first-of-type {
+        .btn {
+          padding-left: 5px;
+        }
+      }
+
+      &:last-of-type {
+        .btn {
+          padding-right: 5px;
+        }
       }
     }
   }
