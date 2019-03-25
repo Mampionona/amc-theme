@@ -9,6 +9,26 @@ $(function() {
   const clearCurrentClass = () => (
     d.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
   );
+  const updateScrollifyAfterImagesLoaded = () => {
+    const images = d.querySelectorAll('img[class^="wp-image"]');
+    const len = images.length;
+    let counter = 0;
+
+    function incrementCounter() {
+      counter++;
+
+      if (counter === len) {
+        $.scrollify.update();
+        console.log('all images are loaded!');
+      }
+    }
+
+    images.forEach(img => {
+      const image = new Image();
+      image.onload = incrementCounter;
+      image.src = img.src;
+    });
+  };
 
   $.scrollify({
     section: '.scrollify',
@@ -45,6 +65,8 @@ $(function() {
           if (page.id == id) page.classList.add('in');
         });
       }
+
+      updateScrollifyAfterImagesLoaded();
     },
     // A callback that is fired after the w is resized.
     afterResize() {
@@ -88,6 +110,8 @@ $(function() {
       if (first_item) {
         first_item.classList.add('current');
       }
+
+      updateScrollifyAfterImagesLoaded();
     }
   });
   
@@ -112,6 +136,8 @@ $(function() {
     if (first) {
       first.classList.add('current');
     }
+
+    updateScrollifyAfterImagesLoaded();
   });
 
   // activation ancre menu niveau 2
