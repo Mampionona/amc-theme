@@ -1,5 +1,5 @@
 .navbar-toggler {
-  background-color: $navbar-toggler-background;
+  background-color: lighten($navbar-toggler-background, 25%);
   padding: 24px 19px;
   position: fixed;
   right: 0;
