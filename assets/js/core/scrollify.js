@@ -31,6 +31,7 @@ $(function() {
   };
 
   $.scrollify({
+    offset: 0,
     section: '.scrollify',
     before () {
       header.classList.add('out');
@@ -38,34 +39,24 @@ $(function() {
     },
     // A callback that is fired after a new section is scrolled to
     after (index, elements) {
+      const section = elements[index][0];
+      const id = section.id;
+      const current = d.querySelector(`.menu-niveau-2 [data-hash=${id}]`);
+
       header.classList.remove('out');
       navbar_toggler.classList.remove('out');
-
-      const section = elements[index][0];
-
       // update logo & navbar-toggler position
       header.style.top = navbar_toggler.style.top = `${section.offsetTop}px`;
 
       if (w.innerWidth > 1199) {
         navbar_toggler.removeAttribute('style');
       }
-
-      const id = section.id;
-
-      if (id.length > 0) {
-        const current = d.querySelector(`.menu-niveau-2 [data-hash=${id}]`);
-
-        if (current) {
-          clearCurrentClass();
-          current.classList.add('current');
-        }
-
-        d.querySelectorAll('.page-wrapper.has-background').forEach(page => {
-          page.classList.remove('in');
-          if (page.id == id) page.classList.add('in');
-        });
+      if (current) {
+        clearCurrentClass();
+        current.classList.add('current');
       }
-
+      d.querySelectorAll('.page-wrapper.has-background').forEach(page => page.classList.remove('in'));
+      section.classList.add('in');
       updateScrollifyAfterImagesLoaded();
     },
     // A callback that is fired after the w is resized.
@@ -122,7 +113,6 @@ $(function() {
 
     $.scrollify.update();
     $.scrollify.instantMove(0);
-    clearCurrentClass();
 
     header.style.top = 0;
     navbar_toggler.style.top = 0;
@@ -131,13 +121,13 @@ $(function() {
       navbar_toggler.removeAttribute('style');
     }
 
-    const current_menu_item = d.querySelector('.menu-niveau-2 .current-menu-item');
-    const first = current_menu_item.querySelector('.menu-item');
-    if (first) {
-      first.classList.add('current');
+    clearCurrentClass();
+    const first_menu_item = d.querySelector('.menu-niveau-2 .current-menu-item .menu-item');
+    if (first_menu_item) {
+      first_menu_item.classList.add('current');
     }
-
     updateScrollifyAfterImagesLoaded();
+    d.querySelector('.page-wrapper').classList.add('in');
   });
 
   // activation ancre menu niveau 2
