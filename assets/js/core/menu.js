@@ -1,6 +1,6 @@
 import 'jquery-scrollify';
 
-(function(w, d, undefined) {
+(function($, w, d, undefined) {
   const MENU = {
     1: d.querySelector('.menu-niveau-1'),
     2: d.querySelector('.menu-niveau-2')
@@ -120,4 +120,13 @@ import 'jquery-scrollify';
       header.style.top = navbar_toggler.style.top = `${current[0].offsetTop}px`;
     }
   });
-} (window, document));
+
+  // activation ancre menu niveau 2
+  $('.menu-niveau-2 [data-hash] a').on('click', function (e) {
+    e.preventDefault();
+    const hash = /(#[a-z0-9\-]+)$/.exec(this.href);
+    if (hash) {
+      $.scrollify.move(hash[1]);
+    }
+  });
+} ($, window, document));

@@ -1,4 +1,5 @@
 import 'jquery-scrollify';
+import { fire, fireAfterImagesLoad } from '../utils';
 
 $(function() {
   const w = window;
@@ -9,26 +10,6 @@ $(function() {
   const clearCurrentClass = () => (
     d.querySelectorAll('.menu-niveau-2 [data-hash]').forEach(item => item.classList.remove('current'))
   );
-  const updateScrollifyAfterImagesLoaded = () => {
-    const images = d.querySelectorAll('img[class^="wp-image"]');
-    const len = images.length;
-    let counter = 0;
-
-    function incrementCounter() {
-      counter++;
-
-      if (counter === len) {
-        $.scrollify.update();
-        console.log('all images are loaded!');
-      }
-    }
-
-    images.forEach(img => {
-      const image = new Image();
-      image.onload = incrementCounter;
-      image.src = img.src;
-    });
-  };
 
   $.scrollify({
     offset: 0,
@@ -36,6 +17,7 @@ $(function() {
     before () {
       header.classList.add('out');
       navbar_toggler.classList.add('out');
+      fire('scrollify.before');
     },
     // A callback that is fired after a new section is scrolled to
     after (index, elements) {
@@ -57,14 +39,12 @@ $(function() {
       }
       d.querySelectorAll('.page-wrapper.has-background').forEach(page => page.classList.remove('in'));
       section.classList.add('in');
-      updateScrollifyAfterImagesLoaded();
+
+      fire('scrollify.after');
     },
     // A callback that is fired after the w is resized.
     afterResize() {
       clearCurrentClass();
-
-      $.scrollify.update();
-
       const current = $.scrollify.current();
       if (current) {
         setTimeout(() => {
@@ -93,6 +73,8 @@ $(function() {
           }
         }, 1200);
       }
+
+      fire('scrollify.after.resize');
     },
     // A callback that is fired after Scrollify's initialisation.
     afterRender () {
@@ -102,42 +84,7 @@ $(function() {
         first_item.classList.add('current');
       }
 
-      updateScrollifyAfterImagesLoaded();
+      fire('scrollify.after.render');
     }
   });
-  
-  d.addEventListener('AWSSuccess', () => {
-    if ($.scrollify.isDisabled()) {
-      $.scrollify.enable();
-    }
-
-    $.scrollify.update();
-    $.scrollify.instantMove(0);
-
-    header.style.top = 0;
-    navbar_toggler.style.top = 0;
-
-    if (w.innerWidth > 1199) {
-      navbar_toggler.removeAttribute('style');
-    }
-
-    clearCurrentClass();
-    const first_menu_item = d.querySelector('.menu-niveau-2 .current-menu-item .menu-item');
-    if (first_menu_item) {
-      first_menu_item.classList.add('current');
-    }
-    updateScrollifyAfterImagesLoaded();
-    d.querySelector('.page-wrapper').classList.add('in');
-  });
-
-  // activation ancre menu niveau 2
-  $('.menu-niveau-2 [data-hash] a').on('click', function(e) {
-    e.preventDefault();
-    const hash = /(#[a-z0-9\-]+)$/.exec(this.href);
-    if (hash) {
-      $.scrollify.move(hash[1]);
-    }
-  });
-
-  $(d).on('click', '.scroll-down', () => $.scrollify.next());
 });

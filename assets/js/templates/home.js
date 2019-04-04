@@ -11,7 +11,6 @@
     if (main) {
       main.style.backgroundImage = `url('${main.dataset.backgroundImage}')`;
     }
-
     showOrHideMenu();
     w.addEventListener('resize', showOrHideMenu);
   }
