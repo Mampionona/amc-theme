@@ -4,6 +4,7 @@
         <div class="galerie-carousel-wrap">
             <div class="header d-none d-xl-block">
                 <?php while (have_rows('histoires')) : the_row(); ?>
+                    <?php if (!get_sub_field('active')) continue; ?>
                     <?php $titre = get_sub_field('titre'); ?>
                     <?php
                         $date = get_sub_field('date');
@@ -17,6 +18,7 @@
             </div>
             <div class="owl-carousel histoires histoire-carousel full-width">
                 <?php while (have_rows('histoires')) : the_row(); ?>
+                    <?php if (!get_sub_field('active')) continue; ?>
                     <?php
                         $titre = get_sub_field('titre');
                         $photo = get_sub_field('photo');
@@ -52,6 +54,7 @@
             <div class="overflow-hidden full-width dots-container">
                 <div class="owl-dots d-flex swipeable step-dots">
                     <?php while (have_rows('histoires')) : the_row(); ?>
+                        <?php if (!get_sub_field('active')) continue; ?>
                         <?php
                             $date = get_sub_field('date');
                             $date = str_replace(array(' ', '-'), array('', '<br>'), $date);
