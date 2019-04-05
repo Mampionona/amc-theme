@@ -2,8 +2,10 @@
  * 
  * @param {String} eventName 
  */
-export function fire(eventName) {
-  const event = new CustomEvent(eventName);
+export function fire(eventName, data = {}) {
+  const event = new CustomEvent(eventName, {
+    detail: data
+  });
 	document.dispatchEvent(event);
 }
 
@@ -35,4 +37,9 @@ export function fireAfterImagesLoad(selector, callbackFn) {
     }
     image.src = src;
   });
+}
+
+export function clearCurrentClass () {
+  document.querySelectorAll('.menu-niveau-2 [data-hash]')
+    .forEach(item => item.classList.remove('current'));
 }
