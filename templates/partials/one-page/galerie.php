@@ -1,7 +1,7 @@
 <div class="galerie-wrap">
     <?php get_template_part('templates/partials/entry', 'title'); ?>
     <?php if (have_rows('histoires')): ?>
-        <div class="galerie-carousel-wrap">
+        <div class="galerie-carousel-wrap galerie <?php echo get_field('puces_de_selection') ? 'puces-selection' : ''; ?>">
             <div class="header d-none d-xl-block">
                 <?php while (have_rows('histoires')) : the_row(); ?>
                     <?php if (!get_sub_field('active')) continue; ?>
@@ -52,7 +52,7 @@
                 <?php endwhile; ?>
             </div>
             <div class="overflow-hidden full-width dots-container">
-                <div class="owl-dots d-flex swipeable step-dots">
+                <div class="owl-dots d-flex swipeable step-dots <?php echo get_field('puces_de_selection') ? 'puces justify-content-center' : 'dates'; ?>">
                     <?php while (have_rows('histoires')) : the_row(); ?>
                         <?php if (!get_sub_field('active')) continue; ?>
                         <?php

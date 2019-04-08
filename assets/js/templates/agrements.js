@@ -6,10 +6,12 @@ $(function() {
 
     owl.owlCarousel({
       autoplay: true,
+      autoWidth: true,
       items: 3,
       lazyLoad: true,
       loop: true,
-      margin: 20,
+      margin: 40,
+      slideBy: 1,
       responsive: {
         992: {
           items: 5
