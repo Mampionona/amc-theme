@@ -121,9 +121,20 @@ $(function() {
         }, 600);
 
         hammer();
+
+        // console.log(event.target);
+        // var current = event.item.index;
+        // var src = $(event.target).find(".owl-item").eq(current).find("img").height();
+        // console.log('Image current is ' + src);
       },
       onTranslated (event) {
         callback(event);
+      },
+      onLoadedLazy (event) {
+        // owl-lazy
+        // console.log('loaded')
+        // const item = event.item.index;
+        // console.log(item);
       }
     });
 
