@@ -1,20 +1,21 @@
 .footer-wrap {
-  bottom: 0;
-  position: fixed;
-  z-index: 9;
+  // bottom: 0;
+  // position: fixed;
+  // z-index: 9;
 
   .bottom-widget {
     padding-left: 60px;
     
     ul {
       @include list-unstyled;
+      @extend .d-flex;
     }
 
     li {
       font-weight: 600;
 
       &::before,
-      &::after {
+      &:last-of-type::after {
         color: rgba($color-text, .3);
         content: '|';
       }
