@@ -26,7 +26,7 @@
             <?php echo $texte_additionnel; ?>
         </div>
         <div class="col-lg-5 text-center text-lg-left">
-            <a href="<?php echo $url_jetassistance; ?>" class="jet btn btn-outline-light" target="_blank">
+            <a href="<?php echo $url_jetassistance; ?>" class="jet btn btn-outline-light d-inline-flex align-items-center" target="_blank">
                 <?php _e('Jet Assistance', AMC_TEXTDOMAIN); ?>
             </a>
         </div>

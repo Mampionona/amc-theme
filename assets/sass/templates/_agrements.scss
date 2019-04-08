@@ -10,6 +10,11 @@
   .btn-outline-light {
     font-size: 10px;
     text-transform: none;
+
+    &.jet {
+      font-size: 12px;
+      padding: 10px 14px;
+    }
   }
 
   .wpcf7-form {
@@ -35,10 +40,10 @@
     &::after {
       background: url('../images/play-15.png') no-repeat center;
       content: '';
-      display: inline-block;
+      // display: inline-block;
       height: 15px;
-      margin-left: 4px;
-      vertical-align: middle;
+      margin-left: 8px;
+      // vertical-align: middle;
       width: 15px;
     }
   }
