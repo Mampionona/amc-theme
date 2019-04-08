@@ -1,11 +1,15 @@
 .footer-wrap {
   // bottom: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 9;
+  // position: absolute;
+  // width: 100%;
+  // z-index: 9;
+  position: relative;
 
   .bottom-widget {
-    padding-left: 60px;
+    padding: 0 60px;
+    // position: absolute;
+    // width: 100%;
+    // z-index: 9;
     
     ul {
       @include list-unstyled;

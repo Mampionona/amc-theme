@@ -1,6 +1,7 @@
 .menu-niveaux {
-  height: 100%;
+  height: calc(100% - 60px);
   max-width: 204px;
+  padding-top: 60px;
   position: fixed;
   top: 0;
   transition: transform .4s;
