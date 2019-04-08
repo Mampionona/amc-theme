@@ -7,11 +7,19 @@
   figcaption {
     font-weight: 100;
     line-height: 18px;
-    margin-top: 80px;
+    margin-top: 20px;
+
+    .puces-selection & {
+      margin-top: 80px;
+    }
 
     @include media-breakpoint-down(lg) {
       font-size: 13px;
-      // margin-top: 26px;
+      margin-top: 26px;
+
+      .puces-selection & {
+        margin-top: 80px;
+      }
     }
 
     @media (max-width: 500px) {
@@ -37,7 +45,11 @@
 
   @include media-breakpoint-down(lg) {
     .owl-dots {
-      margin-top: 100px;
+      margin-top: 13px;
+      
+      .puces-selection & {
+        margin-top: 100px;
+      }
     }
   }
 }
