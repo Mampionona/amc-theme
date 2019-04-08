@@ -15,7 +15,7 @@
             <?php while (have_rows('logos_des_partenaires')) : the_row(); ?>
                 <?php $logo = get_sub_field('logo'); ?>
                 <div class="logo-item d-flex align-items-center">
-                    <img class="owl-lazy" data-src="<?php echo $logo; ?>" alt="">
+                    <img class="owl-lazy grayscale" data-src="<?php echo $logo; ?>" alt="">
                 </div>
             <?php endwhile; ?>
         </div>

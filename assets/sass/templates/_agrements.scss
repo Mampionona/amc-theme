@@ -102,7 +102,18 @@
 
   .logo-item {
     height: 52px;
+
+    &:hover {
+      .grayscale {
+        filter: grayscale(0);
+      }
+    }
   }
+}
+
+.grayscale {
+  filter: grayscale(1);
+  transition: .2s;
 }
 
 .devenez-partenaire {
