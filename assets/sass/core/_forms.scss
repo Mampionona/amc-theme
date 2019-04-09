@@ -29,6 +29,23 @@
     &.wpcf7-file {
       display: none;
     }
+
+    &.wpcf7-checkbox {
+      .wpcf7-list-item {
+        margin-left: 5px;
+      }
+
+      label {
+        display: inline-flex;
+        font-size: 10px;
+        margin-bottom: 0;
+        padding-left: 0;
+      }
+
+      .wpcf7-list-item-label {
+        margin-left: 8px;
+      }
+    }
   }
 
   .wpcf7-text,
